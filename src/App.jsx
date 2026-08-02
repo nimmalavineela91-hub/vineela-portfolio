@@ -1,8 +1,9 @@
+
 const resumeFile = `${import.meta.env.BASE_URL}Vineela_Nimmala_Resume.pdf`
 const profilePhoto = `${import.meta.env.BASE_URL}photo.jpg`
 
 const LINKEDIN_URL =
-  "https://www.linkedin.com/in/vineela-n-901471300"
+  "https://www.linkedin.com/in/vineela-nimmala-901471300"
 
 const EMAIL = "nimmalavineela91@gmail.com"
 
@@ -51,7 +52,7 @@ const domainExpertise = [
   {
     name: "Retail & E-commerce",
     details:
-      "Order lifecycle, inventory visibility, customer behaviour, fulfilment performance, returns, operational KPIs, and dashboard analysis.",
+      "Order lifecycle, inventory visibility, customer behavior, fulfillment performance, returns, operational KPIs, and dashboard analysis.",
     type: "Portfolio Case Study",
   },
   {
@@ -63,7 +64,7 @@ const domainExpertise = [
   {
     name: "Customer Service & Operations",
     details:
-      "Inquiry volumes, response time, service quality, case routing, recurring issues, self-service analytics, and process optimisation.",
+      "Inquiry volumes, response time, service quality, case routing, recurring issues, self-service analytics, and process optimization.",
     type: "Portfolio Case Study",
   },
 ]
@@ -82,6 +83,7 @@ const skills = [
   "SQL",
   "Tableau",
   "Power BI",
+  "Excel",
   "Data Validation",
   "KPI Design",
   "Data Quality",
@@ -108,7 +110,7 @@ const projects = [
     category: "AI Transformation",
     title: "Enterprise AI Readiness Assessment",
     problem:
-      "An organisation wanted to implement AI without a consistent method to evaluate business, process, data, people, risk, and governance readiness.",
+      "An organization wanted to implement AI without a consistent method to evaluate business, process, data, people, risk, and governance readiness.",
     solution:
       "Created an AI-readiness framework covering business outcomes, process maturity, data quality, human oversight, governance, adoption, and ROI measures.",
     tools: ["AI Readiness", "Process Analysis", "Governance", "ROI"],
@@ -126,11 +128,11 @@ const projects = [
   },
   {
     category: "Retail & E-commerce",
-    title: "Order Fulfilment & Inventory Performance Analytics",
+    title: "Order Fulfillment & Inventory Performance Analytics",
     problem:
-      "Business teams needed visibility into order delays, inventory availability, cancellations, returns, fulfilment methods, and delivery performance.",
+      "Business teams needed visibility into order delays, inventory availability, cancellations, returns, fulfillment methods, and delivery performance.",
     solution:
-      "Defined operational KPIs, mapped the order lifecycle, identified bottlenecks, and designed a dashboard concept for fulfilment and inventory decisions.",
+      "Defined operational KPIs, mapped the order lifecycle, identified bottlenecks, and designed a dashboard concept for fulfillment and inventory decisions.",
     tools: ["Tableau", "SQL", "Process Mapping", "KPI Design"],
     status: "Synthetic Portfolio Case Study",
   },
@@ -148,10 +150,15 @@ const projects = [
     category: "Customer Operations",
     title: "Customer Service Analytics & AI-Assisted Case Routing",
     problem:
-      "Support teams faced high inquiry volumes, inconsistent categorisation, delayed routing, and limited visibility into recurring customer issues.",
+      "Support teams faced high inquiry volumes, inconsistent categorization, delayed routing, and limited visibility into recurring customer issues.",
     solution:
       "Defined case categories, routing rules, escalation paths, service-level KPIs, human-review points, and an AI-assisted operating model.",
-    tools: ["Power BI", "AI Requirements", "Human Oversight", "SLA Analysis"],
+    tools: [
+      "Power BI",
+      "AI Requirements",
+      "Human Oversight",
+      "SLA Analysis",
+    ],
     status: "Synthetic Portfolio Case Study",
   },
 ]
@@ -165,7 +172,7 @@ const approach = [
   },
   {
     number: "02",
-    title: "Analyse",
+    title: "Analyze",
     description:
       "Map current processes, review data, identify root causes, clarify business rules, and evaluate risks and dependencies.",
   },
@@ -261,9 +268,9 @@ function App() {
 
               <p className="mt-4 max-w-3xl leading-7 text-slate-400">
                 My portfolio combines professional healthcare experience with
-                non-confidential, synthetic case studies across banking, retail,
-                HR, customer operations, business intelligence, and enterprise
-                AI transformation.
+                non-confidential, synthetic case studies across banking,
+                retail, HR, customer operations, business intelligence, and
+                enterprise AI transformation.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -595,6 +602,19 @@ function App() {
                 className="rounded-full border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-300 hover:text-cyan-300"
               >
                 View Resume
+              </a>
+            </div>
+
+            <div className="mt-8 text-sm leading-7 text-slate-400">
+              <p>{EMAIL}</p>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-cyan-300"
+              >
+                linkedin.com/in/vineela-nimmala-901471300
               </a>
             </div>
           </div>
