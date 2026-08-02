@@ -1,8 +1,10 @@
 const resumeFile = `${import.meta.env.BASE_URL}Vineela_Nimmala_Resume.pdf`
 const profilePhoto = `${import.meta.env.BASE_URL}photo.jpg`
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/your-linkedin-profile/"
-const EMAIL = "your-email@example.com"
+const LINKEDIN_URL =
+  "https://www.linkedin.com/in/vineela-n-901471300"
+
+const EMAIL = "nimmalavineela91@gmail.com"
 
 const roleTargets = [
   {
@@ -49,7 +51,7 @@ const domainExpertise = [
   {
     name: "Retail & E-commerce",
     details:
-      "Order lifecycle, inventory visibility, customer behavior, fulfillment performance, returns, operational KPIs, and dashboard analysis.",
+      "Order lifecycle, inventory visibility, customer behaviour, fulfilment performance, returns, operational KPIs, and dashboard analysis.",
     type: "Portfolio Case Study",
   },
   {
@@ -61,7 +63,7 @@ const domainExpertise = [
   {
     name: "Customer Service & Operations",
     details:
-      "Inquiry volumes, response time, service quality, case routing, recurring issues, self-service analytics, and process optimization.",
+      "Inquiry volumes, response time, service quality, case routing, recurring issues, self-service analytics, and process optimisation.",
     type: "Portfolio Case Study",
   },
 ]
@@ -106,7 +108,7 @@ const projects = [
     category: "AI Transformation",
     title: "Enterprise AI Readiness Assessment",
     problem:
-      "An organization wanted to implement AI without a consistent method to evaluate business, process, data, people, risk, and governance readiness.",
+      "An organisation wanted to implement AI without a consistent method to evaluate business, process, data, people, risk, and governance readiness.",
     solution:
       "Created an AI-readiness framework covering business outcomes, process maturity, data quality, human oversight, governance, adoption, and ROI measures.",
     tools: ["AI Readiness", "Process Analysis", "Governance", "ROI"],
@@ -124,11 +126,11 @@ const projects = [
   },
   {
     category: "Retail & E-commerce",
-    title: "Order Fulfillment & Inventory Performance Analytics",
+    title: "Order Fulfilment & Inventory Performance Analytics",
     problem:
-      "Business teams needed visibility into order delays, inventory availability, cancellations, returns, fulfillment methods, and delivery performance.",
+      "Business teams needed visibility into order delays, inventory availability, cancellations, returns, fulfilment methods, and delivery performance.",
     solution:
-      "Defined operational KPIs, mapped the order lifecycle, identified bottlenecks, and designed a dashboard concept for fulfillment and inventory decisions.",
+      "Defined operational KPIs, mapped the order lifecycle, identified bottlenecks, and designed a dashboard concept for fulfilment and inventory decisions.",
     tools: ["Tableau", "SQL", "Process Mapping", "KPI Design"],
     status: "Synthetic Portfolio Case Study",
   },
@@ -146,7 +148,7 @@ const projects = [
     category: "Customer Operations",
     title: "Customer Service Analytics & AI-Assisted Case Routing",
     problem:
-      "Support teams faced high inquiry volumes, inconsistent categorization, delayed routing, and limited visibility into recurring customer issues.",
+      "Support teams faced high inquiry volumes, inconsistent categorisation, delayed routing, and limited visibility into recurring customer issues.",
     solution:
       "Defined case categories, routing rules, escalation paths, service-level KPIs, human-review points, and an AI-assisted operating model.",
     tools: ["Power BI", "AI Requirements", "Human Oversight", "SLA Analysis"],
@@ -163,7 +165,7 @@ const approach = [
   },
   {
     number: "02",
-    title: "Analyze",
+    title: "Analyse",
     description:
       "Map current processes, review data, identify root causes, clarify business rules, and evaluate risks and dependencies.",
   },
@@ -479,11 +481,9 @@ function App() {
                   key={project.title}
                   className="flex flex-col rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
-                      {project.category}
-                    </span>
-                  </div>
+                  <span className="w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
+                    {project.category}
+                  </span>
 
                   <h3 className="mt-5 text-xl font-bold">{project.title}</h3>
 
