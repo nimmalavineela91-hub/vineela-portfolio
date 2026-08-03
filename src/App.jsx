@@ -1,558 +1,694 @@
+import { useMemo, useState } from "react"
 
-const resumeFile = `${import.meta.env.BASE_URL}Vineela_Nimmala_Resume.pdf`
-const profilePhoto = `${import.meta.env.BASE_URL}photo.jpg`
+const baseUrl = import.meta.env.BASE_URL
+
+const profilePhoto = `${baseUrl}photo.jpg`
+const resumeFile = `${baseUrl}Vineela_Nimmala_Resume.pdf`
 
 const LINKEDIN_URL =
   "https://www.linkedin.com/in/vineela-nimmala-901471300"
 
 const EMAIL = "nimmalavineela91@gmail.com"
 
-const roleTargets = [
+const themes = {
+  ivory: {
+    name: "Ivory",
+    page: "bg-[#f8f4ee] text-[#20252b]",
+    header: "bg-[#f8f4ee]/90 border-[#e6ded2]",
+    card: "bg-white border-[#e8dfd2]",
+    section: "bg-[#fffaf4]",
+    soft: "bg-[#eee4d7]",
+    accent: "bg-[#78563a] text-white",
+    accentText: "text-[#78563a]",
+    muted: "text-[#676b70]",
+    pill: "bg-[#eee4d7] text-[#684a32] border-[#dfcfbd]",
+    line: "bg-[#bea88d]",
+    outline:
+      "border-[#bda68b] text-[#684a32] hover:bg-[#eee4d7]",
+  },
+
+  sage: {
+    name: "Sage",
+    page: "bg-[#f3f7f3] text-[#202820]",
+    header: "bg-[#f3f7f3]/90 border-[#dbe6dc]",
+    card: "bg-white border-[#dbe6dc]",
+    section: "bg-[#f9fcf9]",
+    soft: "bg-[#e4eee5]",
+    accent: "bg-[#4f7054] text-white",
+    accentText: "text-[#4f7054]",
+    muted: "text-[#667068]",
+    pill: "bg-[#e7f0e8] text-[#48634c] border-[#d1e0d3]",
+    line: "bg-[#93af98]",
+    outline:
+      "border-[#98b09c] text-[#48634c] hover:bg-[#e7f0e8]",
+  },
+
+  midnight: {
+    name: "Midnight",
+    page: "bg-slate-950 text-white",
+    header: "bg-slate-950/90 border-slate-800",
+    card: "bg-slate-900 border-slate-800",
+    section: "bg-slate-900/70",
+    soft: "bg-slate-800",
+    accent: "bg-cyan-300 text-slate-950",
+    accentText: "text-cyan-300",
+    muted: "text-slate-400",
+    pill: "bg-slate-800 text-cyan-200 border-slate-700",
+    line: "bg-cyan-500/50",
+    outline:
+      "border-slate-600 text-slate-200 hover:bg-slate-800",
+  },
+}
+
+const experiences = [
   {
-    title: "Business Systems Analyst",
-    description:
-      "Business requirements, system workflows, process analysis, stakeholder collaboration, Agile delivery, UAT, and implementation support.",
+    company: "Molina Healthcare",
+    role: "Business Analyst & Data Analyst",
+    duration: "Jan 2025 – Present",
+    domain: "Healthcare & Health Insurance",
+    summary:
+      "Supporting healthcare-focused business analysis, data analytics, process improvement, reporting, data-quality validation, stakeholder collaboration, Agile delivery, and UAT.",
+    highlights: [
+      "Facilitate stakeholder workshops and translate business needs into BRDs, FRDs, user stories, acceptance criteria, and traceability artifacts.",
+      "Create AS-IS and TO-BE process flows, perform gap analysis, and identify operational improvement opportunities.",
+      "Use SQL, Tableau, Power BI, and data-validation methods to support KPI reporting and trusted business decisions.",
+      "Collaborate with business, product, engineering, QA, data, and compliance teams throughout delivery and UAT.",
+    ],
   },
   {
-    title: "Data & BI Analyst",
-    description:
-      "SQL validation, Tableau, Power BI, KPI design, dashboard requirements, operational reporting, and data-driven insights.",
+    company: "Cognizant",
+    role: "Business Analyst & Data Analyst",
+    duration: "Sep 2021 – Aug 2023",
+    domain: "Healthcare, Claims & Data Analytics",
+    summary:
+      "Supported healthcare claims, revenue-cycle, data integration, analytics, governance, and reporting initiatives across business and technology teams.",
+    highlights: [
+      "Partnered with clinical operations, medical coding, revenue-cycle, payer, compliance, and data teams.",
+      "Created BRDs, FRDs, source-to-target mappings, SOPs, business rules, test evidence, and UAT documentation.",
+      "Analysed claims, payment, provider, member, and clinical data using SQL, Python, Power BI, and Tableau.",
+      "Supported data quality, dimensional modelling, cloud data platforms, reporting, governance, and regulatory controls.",
+    ],
   },
   {
-    title: "Healthcare Business Analyst",
-    description:
-      "Healthcare operations, claims, member services, provider processes, compliance-aware requirements, reporting, and process improvement.",
-  },
-  {
-    title: "AI Business Analyst",
-    description:
-      "AI readiness, use-case assessment, AI requirements, governance, human oversight, risk analysis, and measurable business value.",
+    company: "Wipro",
+    role: "Business Analyst",
+    duration: "Jul 2020 – Aug 2021",
+    domain: "Banking, Risk, Fraud & Compliance",
+    summary:
+      "Worked with risk, fraud, compliance, operations, and technology stakeholders on requirements, analytics, governance, reporting, and control-focused initiatives.",
+    highlights: [
+      "Gathered and documented business and functional requirements for fraud, risk, compliance, and operational workflows.",
+      "Created process flows, data mappings, traceability documents, decision records, governance artifacts, and executive reports.",
+      "Supported SQL analysis, fraud dashboards, risk reporting, testing, release readiness, and issue resolution.",
+      "Used Tableau, Power BI, SQL, Python, AWS, Jira, and Confluence across analytical and governance activities.",
+    ],
   },
 ]
 
-const domainExpertise = [
+const education = [
   {
-    name: "Healthcare & Health Insurance",
-    details:
-      "Claims operations, member services, provider data, healthcare reporting, process improvement, privacy, and compliance-aware analysis.",
-    type: "Professional Domain",
+    degree: "Master of Science in Information Systems and Technology",
+    institution: "University of North Texas",
+    location: "Denton, Texas",
+    duration: "Graduated May 2025",
+    description:
+      "Graduate studies focused on information systems, enterprise technology, analytics, business processes, data-driven decision-making, and technology-enabled transformation.",
   },
   {
-    name: "Data Analytics & Business Intelligence",
-    details:
-      "SQL validation, Tableau, Power BI, KPI frameworks, dashboard requirements, data quality, operational reporting, and business storytelling.",
-    type: "Core Capability",
-  },
-  {
-    name: "Banking & Financial Services",
-    details:
-      "Customer onboarding, KYC workflows, fraud and risk indicators, transaction monitoring, approvals, exceptions, and compliance reporting.",
-    type: "Portfolio Case Study",
-  },
-  {
-    name: "Retail & E-commerce",
-    details:
-      "Order lifecycle, inventory visibility, customer behavior, fulfillment performance, returns, operational KPIs, and dashboard analysis.",
-    type: "Portfolio Case Study",
-  },
-  {
-    name: "HR & Workday",
-    details:
-      "Employee lifecycle, HR reporting, workflow analysis, approvals, data validation, service requests, and automation opportunities.",
-    type: "Portfolio Case Study",
-  },
-  {
-    name: "Customer Service & Operations",
-    details:
-      "Inquiry volumes, response time, service quality, case routing, recurring issues, self-service analytics, and process optimization.",
-    type: "Portfolio Case Study",
+    degree: "Bachelor of Pharmacy",
+    institution: "India",
+    location: "Healthcare Academic Foundation",
+    duration: "Bachelor’s Degree",
+    description:
+      "Built a strong academic foundation in healthcare, pharmaceutical concepts, research, documentation, analytical thinking, and regulated-domain practices.",
   },
 ]
 
-const skills = [
-  "Business Analysis",
-  "Business Systems Analysis",
-  "Requirements Gathering",
-  "Stakeholder Management",
-  "Process Mapping",
-  "Current-State & Future-State Analysis",
-  "User Stories",
-  "Acceptance Criteria",
-  "Agile & Scrum",
-  "UAT Planning",
-  "SQL",
-  "Tableau",
-  "Power BI",
-  "Excel",
-  "Data Validation",
-  "KPI Design",
-  "Data Quality",
-  "Healthcare Analytics",
-  "AI Readiness",
-  "AI Governance",
-  "Human-in-the-Loop AI",
-  "AI Risk Analysis",
-  "Process Automation",
-]
+const skills = {
+  "Business Analysis": [
+    "Requirements Elicitation",
+    "BRD & FRD",
+    "User Stories",
+    "Acceptance Criteria",
+    "RTM",
+    "Stakeholder Management",
+    "Gap Analysis",
+    "Root Cause Analysis",
+    "Business Rules",
+    "Change Management",
+  ],
+
+  "Process & Delivery": [
+    "AS-IS / TO-BE Mapping",
+    "BPMN",
+    "Agile / Scrum",
+    "Jira",
+    "Confluence",
+    "UAT",
+    "Defect Triage",
+    "Release Readiness",
+    "RACI",
+    "Risk & Issue Management",
+  ],
+
+  "Data & Analytics": [
+    "SQL",
+    "Python",
+    "Excel",
+    "Data Profiling",
+    "Data Validation",
+    "Data Quality",
+    "Data Mapping",
+    "KPI Definition",
+    "Reconciliation",
+    "Statistical Analysis",
+  ],
+
+  "BI & Platforms": [
+    "Tableau",
+    "Power BI",
+    "PostgreSQL",
+    "SQL Server",
+    "Snowflake",
+    "BigQuery",
+    "AWS",
+    "Azure",
+    "GCP",
+    "Databricks",
+  ],
+
+  "AI Business Analysis": [
+    "AI Readiness",
+    "AI Requirements",
+    "AI Governance",
+    "Responsible AI",
+    "Human-in-the-Loop",
+    "AI Risk Analysis",
+    "Use-Case Assessment",
+    "Automation Analysis",
+    "AI KPI Definition",
+    "AI ROI",
+  ],
+}
 
 const projects = [
   {
-    category: "Healthcare Analytics",
-    title: "Healthcare Claims Analytics & Operational Performance",
-    problem:
-      "Operations leaders needed better visibility into claims volume, turnaround time, denial trends, pending inventory, rework, and first-pass resolution.",
-    solution:
-      "Defined KPI requirements, validated reporting logic using SQL, designed Tableau views, supported UAT, and translated findings into operational recommendations.",
-    tools: ["Tableau", "SQL", "Excel", "Jira", "UAT"],
-    status: "Experience-Aligned Case Study",
-  },
-  {
-    category: "AI Transformation",
-    title: "Enterprise AI Readiness Assessment",
-    problem:
-      "An organization wanted to implement AI without a consistent method to evaluate business, process, data, people, risk, and governance readiness.",
-    solution:
-      "Created an AI-readiness framework covering business outcomes, process maturity, data quality, human oversight, governance, adoption, and ROI measures.",
-    tools: ["AI Readiness", "Process Analysis", "Governance", "ROI"],
-    status: "AI Business Analysis Case Study",
-  },
-  {
-    category: "Banking & Risk",
-    title: "Digital Customer Onboarding & Risk Analytics",
-    problem:
-      "Manual identity checks, inconsistent document validation, delayed exception reviews, and limited visibility created onboarding delays.",
-    solution:
-      "Mapped the onboarding workflow, defined business rules and exception paths, documented data requirements, and proposed dashboards for risk and turnaround-time monitoring.",
-    tools: ["BPMN", "SQL", "Power BI", "Risk Analysis", "UAT"],
-    status: "Synthetic Portfolio Case Study",
-  },
-  {
-    category: "Retail & E-commerce",
-    title: "Order Fulfillment & Inventory Performance Analytics",
-    problem:
-      "Business teams needed visibility into order delays, inventory availability, cancellations, returns, fulfillment methods, and delivery performance.",
-    solution:
-      "Defined operational KPIs, mapped the order lifecycle, identified bottlenecks, and designed a dashboard concept for fulfillment and inventory decisions.",
-    tools: ["Tableau", "SQL", "Process Mapping", "KPI Design"],
-    status: "Synthetic Portfolio Case Study",
-  },
-  {
-    category: "HR & Workday",
-    title: "Employee Service & HR Workflow Automation",
-    problem:
-      "HR service requests required multiple manual handoffs, unclear ownership, repetitive follow-ups, and fragmented reporting.",
-    solution:
-      "Documented current-state workflows, defined future-state routing and approval rules, identified automation opportunities, and created HR service KPIs.",
-    tools: ["Workday", "Process Analysis", "Reporting", "Automation"],
-    status: "Synthetic Portfolio Case Study",
-  },
-  {
-    category: "Customer Operations",
-    title: "Customer Service Analytics & AI-Assisted Case Routing",
-    problem:
-      "Support teams faced high inquiry volumes, inconsistent categorization, delayed routing, and limited visibility into recurring customer issues.",
-    solution:
-      "Defined case categories, routing rules, escalation paths, service-level KPIs, human-review points, and an AI-assisted operating model.",
-    tools: [
-      "Power BI",
-      "AI Requirements",
-      "Human Oversight",
-      "SLA Analysis",
-    ],
-    status: "Synthetic Portfolio Case Study",
-  },
-]
-
-const approach = [
-  {
     number: "01",
-    title: "Discover",
+    title: "AI-Assisted Healthcare Claims Denial Analytics",
+    category: "SQL • Tableau • Healthcare • AI",
     description:
-      "Understand business goals, stakeholders, user needs, operational pain points, decisions, constraints, and expected outcomes.",
+      "An end-to-end analytics project examining claim status, denial rates, preventable denials, SLA breaches, rework, provider performance, and procedure-level risk.",
+    outcomes: [
+      "Designed a PostgreSQL claims database with providers, members, denial reasons, claims, and status-history tables.",
+      "Used joins, grouping, conditional aggregation, calculated KPIs, and analytical SQL to identify denial drivers.",
+      "Built Tableau KPI views for total claims, denied claims, denial rate, SLA breaches, and operational performance.",
+      "Defined an AI-assisted pre-submission validation concept with human review and governance controls.",
+    ],
+    status: "In Progress",
   },
   {
     number: "02",
-    title: "Analyze",
+    title: "Healthcare Claims Analytics & Data Quality Dashboard",
+    category: "Business Analysis • Data Quality • BI",
     description:
-      "Map current processes, review data, identify root causes, clarify business rules, and evaluate risks and dependencies.",
+      "A professional case study connecting stakeholder needs, claims-process analysis, data quality, KPI definitions, dashboard requirements, validation, and UAT.",
+    outcomes: [
+      "Defined business objectives, scope, stakeholders, requirements, business rules, and reporting expectations.",
+      "Created AS-IS and TO-BE delivery flows and data-quality dimensions.",
+      "Documented KPI definitions, dashboard functionality, security needs, and traceability.",
+      "Created UAT scenarios and release-acceptance expectations.",
+    ],
+    status: "Completed",
   },
   {
     number: "03",
-    title: "Define",
+    title: "Enterprise AI Readiness Assessment",
+    category: "AI Business Analysis • Governance",
     description:
-      "Create requirements, future-state workflows, user stories, acceptance criteria, KPI definitions, and traceability.",
+      "A structured framework for evaluating whether an organization is ready to implement AI responsibly and successfully.",
+    outcomes: [
+      "Evaluates business, process, data, people, technology, risk, and governance readiness.",
+      "Defines human-review requirements, risk controls, success metrics, and ownership.",
+      "Connects AI opportunities with measurable business outcomes and adoption planning.",
+      "Supports responsible prioritization of high-value AI use cases.",
+    ],
+    status: "Portfolio Case Study",
   },
   {
     number: "04",
-    title: "Validate",
+    title: "Digital Customer Onboarding & Risk Analytics",
+    category: "Banking • Risk • Process Analysis",
     description:
-      "Support data reconciliation, requirement reviews, testing, UAT, defect analysis, and stakeholder approval.",
-  },
-  {
-    number: "05",
-    title: "Deliver Value",
-    description:
-      "Measure adoption, cycle time, quality, customer experience, operational efficiency, risk reduction, and business value.",
+      "A cross-domain case study focused on customer onboarding, identity validation, KYC processes, risk indicators, exceptions, and operational reporting.",
+    outcomes: [
+      "Mapped customer onboarding and exception-handling workflows.",
+      "Defined functional requirements, business rules, risk indicators, and escalation paths.",
+      "Outlined SQL and Power BI reporting requirements for onboarding performance.",
+      "Identified automation and human-review opportunities.",
+    ],
+    status: "Synthetic Case Study",
   },
 ]
 
-function App() {
+const workFlow = [
+  {
+    step: "01",
+    title: "Business Problem",
+    description:
+      "Understand the challenge, expected outcome, affected users, constraints, and business value.",
+  },
+  {
+    step: "02",
+    title: "Stakeholder Discovery",
+    description:
+      "Identify decision-makers, process owners, users, subject-matter experts, technical teams, and compliance partners.",
+  },
+  {
+    step: "03",
+    title: "Requirements & Process Analysis",
+    description:
+      "Create requirements, AS-IS and TO-BE flows, business rules, user stories, acceptance criteria, and traceability.",
+  },
+  {
+    step: "04",
+    title: "Data & KPI Definition",
+    description:
+      "Map source data, define data-quality rules, establish KPI logic, and document reporting expectations.",
+  },
+  {
+    step: "05",
+    title: "Solution & Dashboard Design",
+    description:
+      "Translate requirements into dashboards, workflows, system features, analytical outputs, and user experiences.",
+  },
+  {
+    step: "06",
+    title: "Validation & UAT",
+    description:
+      "Validate data and functionality, manage defects, support users, confirm acceptance criteria, and obtain sign-off.",
+  },
+  {
+    step: "07",
+    title: "Insights & Business Value",
+    description:
+      "Communicate findings, recommend improvements, measure outcomes, and support adoption and continuous improvement.",
+  },
+]
+
+const domainCards = [
+  {
+    title: "Healthcare & Health Insurance",
+    type: "Primary Professional Domain",
+    description:
+      "Claims, member services, providers, revenue-cycle operations, data quality, reporting, compliance, and process improvement.",
+  },
+  {
+    title: "Banking, Risk & Fraud",
+    type: "Professional Experience",
+    description:
+      "Fraud monitoring, risk analysis, compliance requirements, controls, transaction reporting, governance, and operational analytics.",
+  },
+  {
+    title: "Data & Business Intelligence",
+    type: "Core Capability",
+    description:
+      "SQL analysis, Tableau, Power BI, data validation, KPI development, executive reporting, and data storytelling.",
+  },
+  {
+    title: "AI & Process Transformation",
+    type: "Growth Specialization",
+    description:
+      "AI readiness, use-case analysis, governance, human oversight, process automation, risk, adoption, and business value.",
+  },
+]
+
+function SectionHeading({ eyebrow, title, description, theme }) {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <div className="mb-12 max-w-4xl">
+      <p
+        className={`text-sm font-bold uppercase tracking-[0.25em] ${theme.accentText}`}
+      >
+        {eyebrow}
+      </p>
+
+      <h2 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
+        {title}
+      </h2>
+
+      {description && (
+        <p className={`mt-5 text-base leading-8 md:text-lg ${theme.muted}`}>
+          {description}
+        </p>
+      )}
+    </div>
+  )
+}
+
+function App() {
+  const [themeName, setThemeName] = useState("ivory")
+  const theme = useMemo(() => themes[themeName], [themeName])
+
+  return (
+    <div
+      className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${theme.page}`}
+    >
+      <header
+        className={`sticky top-0 z-50 border-b backdrop-blur-xl ${theme.header}`}
+      >
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
           <a href="#home" className="text-lg font-bold tracking-wide">
             Vineela Nimmala
           </a>
 
-          <div className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-            <a href="#about" className="transition hover:text-cyan-300">
+          <div className="hidden items-center gap-5 text-sm font-medium lg:flex">
+            <a href="#about" className="transition hover:opacity-60">
               About
             </a>
 
-            <a href="#roles" className="transition hover:text-cyan-300">
-              Target Roles
+            <a href="#experience" className="transition hover:opacity-60">
+              Experience
             </a>
 
-            <a href="#domains" className="transition hover:text-cyan-300">
-              Domains
+            <a href="#education" className="transition hover:opacity-60">
+              Education
             </a>
 
-            <a href="#projects" className="transition hover:text-cyan-300">
-              Case Studies
+            <a href="#approach" className="transition hover:opacity-60">
+              Approach
             </a>
 
-            <a href="#contact" className="transition hover:text-cyan-300">
+            <a href="#projects" className="transition hover:opacity-60">
+              Projects
+            </a>
+
+            <a href="#contact" className="transition hover:opacity-60">
               Contact
             </a>
-
-            <a
-              href={resumeFile}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-cyan-400 px-5 py-2 font-semibold text-slate-950 transition hover:bg-cyan-300"
-            >
-              Resume
-            </a>
           </div>
+
+          <a
+            href={resumeFile}
+            target="_blank"
+            rel="noreferrer"
+            className={`rounded-full px-5 py-2 text-sm font-semibold transition hover:-translate-y-0.5 ${theme.accent}`}
+          >
+            Resume
+          </a>
         </nav>
       </header>
 
       <main>
-        <section
-          id="home"
-          className="relative overflow-hidden px-6 py-20 md:py-28"
-        >
-          <div className="absolute -left-28 top-0 h-96 w-96 rounded-full bg-cyan-500/15 blur-3xl" />
-          <div className="absolute -right-28 bottom-0 h-96 w-96 rounded-full bg-blue-700/20 blur-3xl" />
+        <section id="home" className="relative px-5 py-16 md:px-8 md:py-24">
+          <div
+            className={`absolute -left-20 top-12 h-72 w-72 rounded-full opacity-40 blur-3xl ${theme.soft}`}
+          />
 
-          <div className="relative mx-auto grid max-w-7xl gap-14 md:grid-cols-[1.2fr_0.8fr] md:items-center">
+          <div
+            className={`absolute -right-20 bottom-12 h-72 w-72 rounded-full opacity-40 blur-3xl ${theme.soft}`}
+          />
+
+          <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
+              <div className="mb-8 flex flex-wrap gap-3">
+                {Object.entries(themes).map(([key, item]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setThemeName(key)}
+                    className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                      themeName === key ? theme.accent : theme.outline
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+
+              <p
+                className={`text-sm font-bold uppercase tracking-[0.25em] ${theme.accentText}`}
+              >
                 Business Analysis • Data Analytics • AI Transformation
               </p>
 
-              <h1 className="text-4xl font-bold leading-tight md:text-6xl">
-                Turning complex business problems into
-                <span className="mt-2 block text-cyan-300">
-                  data-driven, process-focused, and AI-enabled solutions.
+              <h1 className="mt-5 text-4xl font-bold leading-[1.1] md:text-6xl">
+                Hi, I’m Vineela Nimmala.
+                <span className={`mt-3 block ${theme.accentText}`}>
+                  I connect business needs, trusted data, and practical
+                  technology solutions.
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                Business Analyst with experience in healthcare operations,
-                requirements gathering, process improvement, SQL validation,
-                Tableau, Power BI, Agile delivery, UAT, data analytics, and AI
-                readiness.
+              <p
+                className={`mt-7 max-w-3xl text-lg leading-8 md:text-xl ${theme.muted}`}
+              >
+                Business Analyst and Data Analyst with 5+ years of experience
+                across healthcare, banking, risk, fraud, data analytics, process
+                improvement, reporting, governance, Agile delivery, and UAT.
               </p>
 
-              <p className="mt-4 max-w-3xl leading-7 text-slate-400">
-                My portfolio combines professional healthcare experience with
-                non-confidential, synthetic case studies across banking,
-                retail, HR, customer operations, business intelligence, and
-                enterprise AI transformation.
+              <p className={`mt-5 max-w-3xl leading-8 ${theme.muted}`}>
+                I translate complex operational problems into structured
+                requirements, process improvements, trusted analytics,
+                executive dashboards, and responsible AI-enabled solutions.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-9 flex flex-wrap gap-4">
                 <a
                   href="#projects"
-                  className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+                  className={`rounded-full px-6 py-3 font-semibold transition hover:-translate-y-1 ${theme.accent}`}
                 >
-                  View Case Studies
+                  Explore My Work
                 </a>
 
                 <a
-                  href={resumeFile}
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-300 hover:text-cyan-300"
+                  className={`rounded-full border px-6 py-3 font-semibold transition ${theme.outline}`}
                 >
-                  Download Resume
+                  LinkedIn
                 </a>
 
                 <a
-                  href="#contact"
-                  className="rounded-full border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-300 hover:text-cyan-300"
+                  href={`mailto:${EMAIL}`}
+                  className={`rounded-full border px-6 py-3 font-semibold transition ${theme.outline}`}
                 >
-                  Contact Me
+                  Email Me
                 </a>
               </div>
             </div>
 
-            <div className="mx-auto w-full max-w-sm">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/30 to-blue-700/30 blur-2xl" />
+            <div className="mx-auto w-full max-w-md">
+              <div
+                className={`overflow-hidden rounded-[2rem] border p-4 shadow-xl ${theme.card}`}
+              >
+                <img
+                  src={profilePhoto}
+                  alt="Vineela Nimmala"
+                  className="h-[430px] w-full rounded-[1.5rem] object-cover object-top"
+                />
 
-                <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
-                  <img
-                    src={profilePhoto}
-                    alt="Vineela Nimmala"
-                    className="h-80 w-full rounded-[1.5rem] object-cover object-top"
-                  />
+                <div className="px-3 pb-3 pt-6">
+                  <h2 className="text-2xl font-bold">Vineela Nimmala</h2>
 
-                  <div className="px-2 pb-2 pt-5">
-                    <h2 className="text-xl font-bold">Vineela Nimmala</h2>
+                  <p className={`mt-2 font-semibold ${theme.accentText}`}>
+                    Business Analyst | Data Analyst | AI Business Analyst
+                  </p>
 
-                    <p className="mt-1 font-medium text-cyan-300">
-                      Business Analyst | Data & AI Transformation
-                    </p>
-
-                    <p className="mt-3 text-sm leading-6 text-slate-400">
-                      Healthcare • SQL • Tableau • Power BI • Process
-                      Improvement • UAT • AI Readiness
-                    </p>
-                  </div>
+                  <p className={`mt-4 text-sm leading-7 ${theme.muted}`}>
+                    SQL • Tableau • Power BI • Healthcare • Process Improvement
+                    • UAT • Data Quality • AI Readiness
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-slate-900/60 px-6 py-10">
-          <div className="mx-auto grid max-w-7xl gap-8 text-center sm:grid-cols-2 lg:grid-cols-5">
+        <section className={`px-5 py-10 md:px-8 ${theme.section}`}>
+          <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ["Business Analysis", "Requirements & Processes"],
-              ["Data Analytics", "SQL & BI"],
-              ["Healthcare", "Domain Expertise"],
-              ["Agile & UAT", "Delivery Support"],
-              ["AI Transformation", "Readiness & Governance"],
-            ].map(([title, subtitle]) => (
-              <div key={title}>
-                <p className="font-bold">{title}</p>
-                <p className="mt-1 text-sm text-slate-400">{subtitle}</p>
-              </div>
+              ["5+ Years", "Business & Data Analysis"],
+              ["3 Domains", "Healthcare, Banking & Analytics"],
+              ["MS Degree", "Information Systems & Technology"],
+              ["AI Focus", "Readiness, Governance & Automation"],
+            ].map(([value, label]) => (
+              <article
+                key={value}
+                className={`rounded-3xl border p-6 text-center ${theme.card}`}
+              >
+                <p className={`text-2xl font-bold ${theme.accentText}`}>
+                  {value}
+                </p>
+
+                <p className={`mt-2 text-sm ${theme.muted}`}>{label}</p>
+              </article>
             ))}
           </div>
         </section>
 
-        <section id="about" className="bg-white px-6 py-20 text-slate-900">
+        <section id="about" className="px-5 py-20 md:px-8">
           <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-              About Me
-            </p>
+            <SectionHeading
+              eyebrow="About Me"
+              title="Business understanding supported by analytics, systems thinking, and responsible AI."
+              description="My strength is not limited to creating documentation or dashboards. I connect stakeholder needs, business processes, data definitions, technical delivery, validation, and adoption into one structured approach."
+              theme={theme}
+            />
 
-            <div className="mt-6 grid gap-12 md:grid-cols-2">
-              <h2 className="text-3xl font-bold leading-tight md:text-5xl">
-                I connect business needs, processes, data, technology, and AI.
-              </h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Business Analysis",
+                  text: "Requirements elicitation, stakeholder workshops, process mapping, user stories, acceptance criteria, traceability, change management, and UAT.",
+                },
+                {
+                  title: "Data Analytics",
+                  text: "SQL, Python, Tableau, Power BI, data profiling, data validation, KPI development, reconciliation, trend analysis, and data storytelling.",
+                },
+                {
+                  title: "AI Transformation",
+                  text: "AI readiness, responsible AI requirements, use-case evaluation, governance, human oversight, process automation, risk, and ROI.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.title}
+                  className={`rounded-3xl border p-7 transition hover:-translate-y-1 hover:shadow-lg ${theme.card}`}
+                >
+                  <div
+                    className={`mb-5 h-1.5 w-14 rounded-full ${theme.accent}`}
+                  />
 
-              <div className="space-y-5 leading-7 text-slate-600">
-                <p>
-                  My experience focuses on stakeholder collaboration,
-                  requirements gathering, workflow analysis, operational
-                  reporting, SQL-based data validation, dashboard requirements,
-                  Agile delivery, and UAT.
-                </p>
+                  <h3 className="text-xl font-bold">{item.title}</h3>
 
-                <p>
-                  Healthcare is my strongest professional domain. I also use
-                  synthetic portfolio case studies to demonstrate how the same
-                  Business Analysis methods can be applied across financial
-                  services, retail, HR, customer operations, and enterprise
-                  technology.
-                </p>
+                  <p className={`mt-4 text-sm leading-7 ${theme.muted}`}>
+                    {item.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <p>
-                  My current learning and portfolio development also focus on AI
-                  readiness, responsible AI requirements, governance,
-                  human-in-the-loop workflows, AI risk, automation, and
-                  measurable value delivery.
-                </p>
+        <section id="experience" className={`px-5 py-20 md:px-8 ${theme.section}`}>
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Professional Journey"
+              title="Experience across healthcare, analytics, banking, risk, and compliance."
+              description="The timeline below presents my experience in reverse chronological order using the employment dates from my resume."
+              theme={theme}
+            />
+
+            <div className="relative">
+              <div
+                className={`absolute bottom-0 left-[23px] top-0 hidden w-1 rounded-full md:block ${theme.line}`}
+              />
+
+              <div className="space-y-8">
+                {experiences.map((experience, index) => (
+                  <article
+                    key={experience.company}
+                    className="relative md:pl-20"
+                  >
+                    <div
+                      className={`absolute left-0 top-8 hidden h-12 w-12 items-center justify-center rounded-full text-sm font-bold md:flex ${theme.accent}`}
+                    >
+                      {index + 1}
+                    </div>
+
+                    <div
+                      className={`rounded-[2rem] border p-7 md:p-9 ${theme.card}`}
+                    >
+                      <div className="flex flex-col justify-between gap-5 md:flex-row md:items-start">
+                        <div>
+                          <p
+                            className={`text-sm font-bold uppercase tracking-[0.18em] ${theme.accentText}`}
+                          >
+                            {experience.domain}
+                          </p>
+
+                          <h3 className="mt-3 text-2xl font-bold">
+                            {experience.company}
+                          </h3>
+
+                          <p className={`mt-2 font-semibold ${theme.accentText}`}>
+                            {experience.role}
+                          </p>
+                        </div>
+
+                        <span
+                          className={`w-fit rounded-full border px-4 py-2 text-sm font-semibold ${theme.pill}`}
+                        >
+                          {experience.duration}
+                        </span>
+                      </div>
+
+                      <p className={`mt-6 leading-8 ${theme.muted}`}>
+                        {experience.summary}
+                      </p>
+
+                      <div className="mt-7 grid gap-4 md:grid-cols-2">
+                        {experience.highlights.map((highlight) => (
+                          <div
+                            key={highlight}
+                            className={`rounded-2xl p-4 ${theme.soft}`}
+                          >
+                            <p className="text-sm leading-7">{highlight}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section id="roles" className="px-6 py-20">
+        <section id="education" className="px-5 py-20 md:px-8">
           <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Target Roles
-            </p>
+            <SectionHeading
+              eyebrow="Education"
+              title="Academic foundation in information systems and healthcare."
+              description="My education combines enterprise information systems with a healthcare and pharmaceutical foundation."
+              theme={theme}
+            />
 
-            <h2 className="mt-4 max-w-4xl text-3xl font-bold md:text-4xl">
-              Roles aligned with my business, data, systems, and AI capabilities
-            </h2>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {roleTargets.map((role) => (
+            <div className="grid gap-6 lg:grid-cols-2">
+              {education.map((item, index) => (
                 <article
-                  key={role.title}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-cyan-300/40"
+                  key={item.degree}
+                  className={`rounded-[2rem] border p-8 ${theme.card}`}
                 >
-                  <div className="mb-5 h-1 w-12 rounded-full bg-cyan-300" />
+                  <div className="flex items-start gap-5">
+                    <div
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-lg font-bold ${theme.accent}`}
+                    >
+                      {index + 1}
+                    </div>
 
-                  <h3 className="text-xl font-bold">{role.title}</h3>
+                    <div>
+                      <h3 className="text-xl font-bold">{item.degree}</h3>
 
-                  <p className="mt-4 text-sm leading-7 text-slate-400">
-                    {role.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+                      <p className={`mt-2 font-semibold ${theme.accentText}`}>
+                        {item.institution}
+                      </p>
 
-        <section id="domains" className="bg-slate-900 px-6 py-20">
-          <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Domain Coverage
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-              Professional expertise supported by cross-domain case studies
-            </h2>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {domainExpertise.map((domain) => (
-                <article
-                  key={domain.name}
-                  className="rounded-3xl border border-white/10 bg-slate-950 p-6"
-                >
-                  <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs font-semibold text-cyan-300">
-                    {domain.type}
-                  </span>
-
-                  <h3 className="mt-5 text-xl font-bold">{domain.name}</h3>
-
-                  <p className="mt-3 leading-7 text-slate-400">
-                    {domain.details}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" className="px-6 py-20">
-          <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Core Capabilities
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-              Business, analytics, delivery, and AI transformation skills
-            </h2>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-slate-200"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="bg-white px-6 py-20 text-slate-900">
-          <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-              Featured Portfolio
-            </p>
-
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-              Multi-domain Business Analysis and analytics case studies
-            </h2>
-
-            <p className="mt-4 max-w-4xl leading-7 text-slate-600">
-              Professional healthcare experience is presented separately from
-              synthetic cross-domain case studies. No confidential employer,
-              member, customer, provider, or production data is used.
-            </p>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project) => (
-                <article
-                  key={project.title}
-                  className="flex flex-col rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <span className="w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
-                    {project.category}
-                  </span>
-
-                  <h3 className="mt-5 text-xl font-bold">{project.title}</h3>
-
-                  <div className="mt-5">
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                      Business Problem
-                    </p>
-
-                    <p className="mt-2 text-sm leading-7 text-slate-600">
-                      {project.problem}
-                    </p>
+                      <p className={`mt-1 text-sm ${theme.muted}`}>
+                        {item.location}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="mt-5 flex-1">
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                      BA Solution
-                    </p>
-
-                    <p className="mt-2 text-sm leading-7 text-slate-600">
-                      {project.solution}
-                    </p>
+                  <div className="mt-6">
+                    <span
+                      className={`rounded-full border px-4 py-2 text-sm font-semibold ${theme.pill}`}
+                    >
+                      {item.duration}
+                    </span>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="rounded-full bg-slate-200 px-3 py-1 text-xs text-slate-700"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="mt-6 border-t border-slate-200 pt-4 text-xs font-semibold text-blue-700">
-                    {project.status}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-6 py-20">
-          <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Delivery Approach
-            </p>
-
-            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-              {approach.map((item) => (
-                <article
-                  key={item.number}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-6"
-                >
-                  <p className="text-sm font-bold text-cyan-300">
-                    {item.number}
-                  </p>
-
-                  <h3 className="mt-3 text-lg font-bold">{item.title}</h3>
-
-                  <p className="mt-3 text-sm leading-7 text-slate-400">
+                  <p className={`mt-6 leading-8 ${theme.muted}`}>
                     {item.description}
                   </p>
                 </article>
@@ -561,69 +697,255 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="bg-slate-900 px-6 py-20">
-          <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-900 to-slate-950 p-10 text-center md:p-14">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Career Opportunities
-            </p>
+        <section id="domains" className={`px-5 py-20 md:px-8 ${theme.section}`}>
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Domain Coverage"
+              title="Professional depth with cross-domain analytical capability."
+              description="Healthcare is my strongest domain, supported by professional experience in banking, fraud, risk, compliance, data analytics, and enterprise transformation."
+              theme={theme}
+            />
 
-            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-              Open to Business Analyst, Business Systems Analyst, Data/BI
-              Analyst, Healthcare BA, and AI Business Analyst opportunities
-            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {domainCards.map((domain) => (
+                <article
+                  key={domain.title}
+                  className={`rounded-3xl border p-7 ${theme.card}`}
+                >
+                  <span
+                    className={`rounded-full border px-3 py-2 text-xs font-bold ${theme.pill}`}
+                  >
+                    {domain.type}
+                  </span>
 
-            <p className="mx-auto mt-6 max-w-3xl leading-8 text-slate-300">
-              I bring healthcare-domain experience, structured Business
-              Analysis, analytics, process improvement, dashboarding, Agile/UAT,
-              and growing AI-transformation capabilities.
-            </p>
+                  <h3 className="mt-6 text-xl font-bold">{domain.title}</h3>
 
-            <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-100"
-              >
-                Email Me
-              </a>
-
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-300 hover:text-cyan-300"
-              >
-                LinkedIn
-              </a>
-
-              <a
-                href={resumeFile}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-white/20 px-6 py-3 font-semibold transition hover:border-cyan-300 hover:text-cyan-300"
-              >
-                View Resume
-              </a>
+                  <p className={`mt-4 leading-8 ${theme.muted}`}>
+                    {domain.description}
+                  </p>
+                </article>
+              ))}
             </div>
+          </div>
+        </section>
 
-            <div className="mt-8 text-sm leading-7 text-slate-400">
-              <p>{EMAIL}</p>
+        <section id="approach" className="px-5 py-20 md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="My Delivery Flow"
+              title="From business problem to measurable business value."
+              description="This flowchart presents how I connect business analysis, data analysis, solution design, validation, and adoption."
+              theme={theme}
+            />
 
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="transition hover:text-cyan-300"
+            <div className="relative">
+              <div
+                className={`absolute bottom-8 left-7 top-8 w-1 rounded-full md:left-1/2 md:-translate-x-1/2 ${theme.line}`}
+              />
+
+              <div className="space-y-8">
+                {workFlow.map((item, index) => {
+                  const isLeft = index % 2 === 0
+
+                  return (
+                    <div
+                      key={item.step}
+                      className="relative grid gap-5 pl-20 md:grid-cols-2 md:pl-0"
+                    >
+                      <div
+                        className={`absolute left-0 top-6 z-10 flex h-14 w-14 items-center justify-center rounded-full font-bold md:left-1/2 md:-translate-x-1/2 ${theme.accent}`}
+                      >
+                        {item.step}
+                      </div>
+
+                      <div
+                        className={`${
+                          isLeft
+                            ? "md:col-start-1 md:pr-14"
+                            : "md:col-start-2 md:pl-14"
+                        }`}
+                      >
+                        <article
+                          className={`rounded-3xl border p-7 ${theme.card}`}
+                        >
+                          <h3 className="text-xl font-bold">{item.title}</h3>
+
+                          <p className={`mt-4 text-sm leading-7 ${theme.muted}`}>
+                            {item.description}
+                          </p>
+                        </article>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className={`px-5 py-20 md:px-8 ${theme.section}`}>
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Capabilities"
+              title="Skills that connect business, data, delivery, and AI."
+              description="The skills are grouped so recruiters and hiring managers can quickly understand my profile."
+              theme={theme}
+            />
+
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {Object.entries(skills).map(([category, items]) => (
+                <article
+                  key={category}
+                  className={`rounded-3xl border p-7 ${theme.card}`}
+                >
+                  <h3 className="text-xl font-bold">{category}</h3>
+
+                  <div className="mt-6 flex flex-wrap gap-2.5">
+                    {items.map((skill) => (
+                      <span
+                        key={skill}
+                        className={`rounded-full border px-3 py-2 text-xs font-semibold ${theme.pill}`}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="px-5 py-20 md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Selected Portfolio Work"
+              title="Projects demonstrating business analysis, analytics, and AI thinking."
+              description="These case studies show how I approach requirements, data, dashboards, governance, validation, and business value."
+              theme={theme}
+            />
+
+            <div className="grid gap-7 lg:grid-cols-2">
+              {projects.map((project) => (
+                <article
+                  key={project.title}
+                  className={`flex flex-col rounded-[2rem] border p-8 transition hover:-translate-y-1 hover:shadow-xl ${theme.card}`}
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <div
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl font-bold ${theme.accent}`}
+                    >
+                      {project.number}
+                    </div>
+
+                    <span
+                      className={`rounded-full border px-3 py-2 text-xs font-bold ${theme.pill}`}
+                    >
+                      {project.status}
+                    </span>
+                  </div>
+
+                  <p
+                    className={`mt-7 text-xs font-bold uppercase tracking-[0.16em] ${theme.accentText}`}
+                  >
+                    {project.category}
+                  </p>
+
+                  <h3 className="mt-3 text-2xl font-bold">{project.title}</h3>
+
+                  <p className={`mt-5 leading-8 ${theme.muted}`}>
+                    {project.description}
+                  </p>
+
+                  <div className="mt-7 space-y-3">
+                    {project.outcomes.map((outcome) => (
+                      <div key={outcome} className="flex gap-3">
+                        <span className={`font-bold ${theme.accentText}`}>
+                          ✓
+                        </span>
+
+                        <p className={`text-sm leading-7 ${theme.muted}`}>
+                          {outcome}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className={`px-5 py-20 md:px-8 ${theme.section}`}>
+          <div className="mx-auto max-w-5xl">
+            <div
+              className={`rounded-[2.5rem] border p-9 text-center md:p-14 ${theme.card}`}
+            >
+              <p
+                className={`text-sm font-bold uppercase tracking-[0.25em] ${theme.accentText}`}
               >
-                linkedin.com/in/vineela-nimmala-901471300
-              </a>
+                Career Opportunities
+              </p>
+
+              <h2 className="mt-5 text-3xl font-bold md:text-5xl">
+                Let’s connect and build meaningful business solutions.
+              </h2>
+
+              <p
+                className={`mx-auto mt-6 max-w-3xl text-base leading-8 md:text-lg ${theme.muted}`}
+              >
+                Open to Business Analyst, Data Analyst, Business Systems
+                Analyst, Healthcare Analyst, BI Analyst, and AI Business Analyst
+                opportunities.
+              </p>
+
+              <div className="mt-9 flex flex-wrap justify-center gap-4">
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className={`rounded-full px-6 py-3 font-semibold transition hover:-translate-y-1 ${theme.accent}`}
+                >
+                  Email Me
+                </a>
+
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`rounded-full border px-6 py-3 font-semibold transition ${theme.outline}`}
+                >
+                  LinkedIn Profile
+                </a>
+
+                <a
+                  href={resumeFile}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`rounded-full border px-6 py-3 font-semibold transition ${theme.outline}`}
+                >
+                  Download Resume
+                </a>
+              </div>
+
+              <div className={`mt-9 text-sm leading-7 ${theme.muted}`}>
+                <p>{EMAIL}</p>
+
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition hover:underline"
+                >
+                  linkedin.com/in/vineela-nimmala-901471300
+                </a>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/10 px-6 py-6 text-center text-sm text-slate-500">
-        © 2026 Vineela Nimmala. Business Analysis, Data Analytics, and AI
-        Transformation Portfolio.
+      <footer className="px-5 py-8 text-center text-sm opacity-60 md:px-8">
+        © 2026 Vineela Nimmala • Business Analysis • Data Analytics • AI
+        Transformation
       </footer>
     </div>
   )
