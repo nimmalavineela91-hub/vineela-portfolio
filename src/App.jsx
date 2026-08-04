@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const baseUrl = import.meta.env.BASE_URL
 
@@ -13,14 +13,6 @@ const LINKEDIN_URL =
 const PORTFOLIO_URL =
   "https://nimmalavineela91-hub.github.io/vineela-portfolio/"
 
-const heroRoles = [
-  "Business Analyst",
-  "Data Analyst",
-  "Business Systems Analyst",
-  "AI Business Analyst",
-  "Healthcare Analytics Professional",
-]
-
 const experiences = [
   {
     company: "Molina Healthcare",
@@ -28,12 +20,12 @@ const experiences = [
     duration: "Jan 2025 – Present",
     domain: "Healthcare & Health Insurance",
     summary:
-      "Supporting healthcare business analysis, analytics, reporting, data quality, process improvement, stakeholder collaboration, Agile delivery, and UAT.",
-    responsibilities: [
-      "Facilitate stakeholder discussions and translate business needs into requirements, user stories, acceptance criteria, and traceability artifacts.",
+      "Supporting healthcare-focused business analysis, data analytics, process improvement, reporting, data-quality validation, stakeholder collaboration, Agile delivery, and UAT.",
+    highlights: [
+      "Facilitate stakeholder workshops and translate business needs into BRDs, FRDs, user stories, acceptance criteria, and traceability artifacts.",
       "Create AS-IS and TO-BE process flows, perform gap analysis, and identify operational improvement opportunities.",
-      "Use SQL, Tableau, Power BI, Snowflake, BigQuery, and data-validation methods to support KPI reporting.",
-      "Apply Claude and AI frameworks to support requirements documentation, analysis, user-story development, and reporting workflows.",
+      "Use SQL, Tableau, Power BI, Snowflake, BigQuery, and data-validation methods to support KPI reporting and trusted business decisions.",
+      "Collaborate with product, engineering, QA, data, compliance, and operations teams throughout delivery and UAT.",
     ],
     technologies: [
       "SQL",
@@ -52,22 +44,22 @@ const experiences = [
     duration: "Sep 2021 – Aug 2023",
     domain: "Healthcare, Claims & Data Analytics",
     summary:
-      "Supported healthcare claims, revenue-cycle, data integration, analytics, governance, reporting, and testing initiatives.",
-    responsibilities: [
-      "Collaborated with clinical operations, medical coding, payer, revenue-cycle, compliance, and data teams.",
+      "Supported healthcare claims, revenue-cycle, data integration, reporting, governance, analytics, and testing initiatives across business and technology teams.",
+    highlights: [
+      "Partnered with clinical operations, medical coding, payer, revenue-cycle, compliance, and data teams.",
       "Created BRDs, FRDs, source-to-target mappings, SOPs, business rules, test evidence, and UAT documentation.",
       "Analysed claims, payment, provider, member, and clinical data using SQL, Python, Power BI, and Tableau.",
-      "Supported data quality, dimensional modelling, cloud data platforms, HIPAA controls, and analytical reporting.",
+      "Supported dimensional modelling, cloud data platforms, data quality, governance, HIPAA controls, and analytical reporting.",
     ],
     technologies: [
       "SQL",
       "Python",
-      "Databricks",
-      "Snowflake",
       "Power BI",
       "Tableau",
+      "Databricks",
+      "Snowflake",
+      "Redshift",
       "Azure DevOps",
-      "Data Quality",
     ],
   },
   {
@@ -76,12 +68,12 @@ const experiences = [
     duration: "Jul 2020 – Aug 2021",
     domain: "Banking, Risk, Fraud & Compliance",
     summary:
-      "Worked with risk, fraud, compliance, operations, and technology stakeholders on requirements, reporting, controls, testing, and governance.",
-    responsibilities: [
+      "Worked with risk, fraud, compliance, operations, and technology stakeholders on requirements, analytics, governance, reporting, and control-focused initiatives.",
+    highlights: [
       "Gathered and documented business and functional requirements for fraud, risk, compliance, and operational workflows.",
-      "Created process flows, data mappings, traceability documents, decision records, and governance artifacts.",
-      "Supported SQL analysis, fraud dashboards, testing, release readiness, and operational issue resolution.",
-      "Developed fraud and chargeback reporting requirements using Tableau and Power BI.",
+      "Created process flows, data mappings, traceability documents, governance artifacts, and executive reports.",
+      "Supported SQL analysis, fraud dashboards, testing, release readiness, and issue resolution.",
+      "Used Tableau, Power BI, SQL, Python, AWS, Jira, and Confluence across analytical and governance activities.",
     ],
     technologies: [
       "SQL",
@@ -91,39 +83,64 @@ const experiences = [
       "AWS",
       "Jira",
       "Confluence",
-      "Risk Analysis",
+      "Risk Analytics",
     ],
+  },
+]
+
+const education = [
+  {
+    number: "01",
+    degree: "Master of Science in Information Systems and Technology",
+    institution: "University of North Texas",
+    location: "Denton, Texas",
+    duration: "Graduated May 2025",
+    description:
+      "Graduate studies focused on information systems, enterprise technology, business processes, analytics, data-driven decision-making, and technology-enabled transformation.",
+  },
+  {
+    number: "02",
+    degree: "Bachelor of Pharmacy",
+    institution: "India",
+    location: "Healthcare Academic Foundation",
+    duration: "Bachelor’s Degree",
+    description:
+      "Built a strong foundation in healthcare, pharmaceutical concepts, regulated-domain practices, research, documentation, and analytical thinking.",
   },
 ]
 
 const certifications = [
   {
+    number: "01",
     title: "Claude 101",
     issuer: "Anthropic",
     category: "Generative AI",
     description:
-      "Claude fundamentals, prompting practices, model capabilities, responsible use, and practical business applications.",
+      "Foundational understanding of Claude, prompting, responsible AI usage, model capabilities, and practical business applications.",
   },
   {
+    number: "02",
     title: "AI Fluency: Frameworks & Foundations",
     issuer: "Anthropic",
     category: "AI Fluency",
     description:
-      "Frameworks for delegating work to AI, providing context, evaluating outputs, collaborating effectively, and applying AI responsibly.",
+      "Frameworks for providing context, delegating work to AI, evaluating outputs, collaborating effectively, and applying AI responsibly.",
   },
   {
+    number: "03",
     title: "Google AI Essentials",
     issuer: "Google",
     category: "Applied AI",
     description:
-      "Practical use of generative AI for productivity, prompt development, responsible use, and workplace problem-solving.",
+      "Practical use of generative AI for productivity, prompt development, responsible use, analysis, and workplace problem-solving.",
   },
   {
+    number: "04",
     title: "Data Analytics Essentials",
     issuer: "Cisco Networking Academy",
     category: "Data Analytics",
     description:
-      "Core concepts in data preparation, transformation, analysis, visualization, interpretation, and data-driven decision-making.",
+      "Core concepts in data preparation, transformation, analysis, interpretation, visualization, and data-driven decision-making.",
   },
 ]
 
@@ -131,68 +148,58 @@ const projects = [
   {
     number: "01",
     title: "AI-Assisted Healthcare Claims Denial Analytics",
-    label: "Featured Project",
+    category: "SQL • Tableau • Healthcare • AI",
     status: "In Progress",
     description:
-      "An end-to-end PostgreSQL and Tableau project analysing healthcare claims, denial rates, preventable denials, SLA breaches, rework, provider performance, and financial impact.",
+      "An end-to-end analytics project examining claims volume, denial rates, preventable denials, SLA breaches, rework, provider performance, procedure risk, and financial impact.",
     outcomes: [
-      "Designed a relational healthcare claims database using PostgreSQL.",
-      "Calculated total claims, denial rate, rework rate, SLA breaches, and preventable-denial KPIs.",
-      "Analysed denial patterns by provider, procedure category, claim type, and submission month.",
-      "Defined an AI-assisted pre-submission validation workflow with human review and governance controls.",
+      "Designed a PostgreSQL relational database for providers, members, claims, denial reasons, and claim-status history.",
+      "Used joins, conditional aggregation, calculated KPIs, filters, and analytical SQL to identify denial drivers.",
+      "Created Tableau KPI views for total claims, denied claims, denial rate, SLA performance, and rework.",
+      "Defined an AI-assisted pre-submission validation concept with human review and governance controls.",
     ],
-    skills: ["PostgreSQL", "SQL", "Tableau", "Healthcare", "AI Analysis"],
   },
   {
     number: "02",
     title: "Healthcare Claims Analytics & Data Quality",
-    label: "Business Analysis",
+    category: "Business Analysis • Data Quality • BI",
     status: "Completed",
     description:
-      "A structured business-analysis portfolio project covering requirements, stakeholder needs, process mapping, KPI definitions, dashboard requirements, validation, and UAT.",
+      "A professional case study connecting stakeholder needs, claims-process analysis, data quality, KPI definitions, dashboard requirements, traceability, and UAT.",
     outcomes: [
-      "Defined business objectives, scope, stakeholders, and reporting requirements.",
-      "Created AS-IS and TO-BE process flows.",
-      "Documented data-quality rules and dashboard KPI definitions.",
-      "Created UAT scenarios, acceptance criteria, and traceability artifacts.",
+      "Defined business objectives, scope, stakeholders, functional requirements, and business rules.",
+      "Created AS-IS and TO-BE process flows and documented data-quality dimensions.",
+      "Defined dashboard KPIs, reporting requirements, security needs, and validation expectations.",
+      "Created UAT scenarios, acceptance criteria, and release-readiness requirements.",
     ],
-    skills: ["BRD", "FRD", "UAT", "Data Quality", "Process Mapping"],
   },
   {
     number: "03",
     title: "Enterprise AI Readiness Assessment",
-    label: "AI Business Analysis",
+    category: "AI Business Analysis • Governance",
     status: "Case Study",
     description:
-      "A structured framework for evaluating whether an organization is ready to implement AI responsibly and successfully.",
+      "A structured framework for evaluating whether an organization is prepared to implement AI responsibly and successfully.",
     outcomes: [
-      "Evaluated business, process, data, people, technology, and governance readiness.",
-      "Defined responsible AI requirements and human-review checkpoints.",
-      "Identified risk controls, ownership, adoption needs, and success metrics.",
-      "Connected AI opportunities with measurable business outcomes.",
-    ],
-    skills: [
-      "AI Readiness",
-      "Governance",
-      "Responsible AI",
-      "Risk Analysis",
-      "AI ROI",
+      "Evaluated business, process, data, people, technology, risk, and governance readiness.",
+      "Defined human-review requirements, risk controls, ownership, and success metrics.",
+      "Connected AI opportunities with measurable business outcomes and adoption planning.",
+      "Supported responsible prioritization of high-value AI use cases.",
     ],
   },
   {
     number: "04",
     title: "Digital Customer Onboarding & Risk Analytics",
-    label: "Banking Case Study",
+    category: "Banking • Risk • Process Analysis",
     status: "Portfolio Project",
     description:
-      "A cross-domain case study focused on customer onboarding, identity validation, KYC, risk indicators, exception management, and operational reporting.",
+      "A cross-domain case study focused on KYC, customer onboarding, identity verification, risk indicators, exceptions, workflow analysis, and reporting.",
     outcomes: [
       "Mapped customer onboarding and exception-handling workflows.",
-      "Defined requirements, business rules, risk indicators, and escalation paths.",
-      "Outlined SQL and Power BI reporting requirements.",
+      "Defined functional requirements, business rules, controls, and escalation paths.",
+      "Outlined SQL and Power BI reporting requirements for onboarding performance.",
       "Identified automation and human-review opportunities.",
     ],
-    skills: ["Banking", "KYC", "Risk", "SQL", "Power BI"],
   },
 ]
 
@@ -206,10 +213,25 @@ const skillGroups = [
       "User Stories",
       "Acceptance Criteria",
       "RTM",
-      "Gap Analysis",
       "Stakeholder Management",
+      "Gap Analysis",
+      "Root Cause Analysis",
       "Business Rules",
-      "Change Management",
+    ],
+  },
+  {
+    title: "Process & Delivery",
+    skills: [
+      "AS-IS / TO-BE",
+      "BPMN",
+      "Agile",
+      "Scrum",
+      "SAFe",
+      "Jira",
+      "Confluence",
+      "UAT",
+      "Defect Triage",
+      "Release Readiness",
     ],
   },
   {
@@ -251,8 +273,8 @@ const skillGroups = [
       "AWS",
       "Azure",
       "GCP",
-      "Airflow",
       "Azure Data Factory",
+      "Airflow",
     ],
   },
   {
@@ -263,26 +285,11 @@ const skillGroups = [
       "Prompt Engineering",
       "AI Readiness",
       "AI Requirements",
-      "AI Governance",
       "Responsible AI",
+      "AI Governance",
       "Human-in-the-Loop",
-      "AI Risk",
+      "AI Risk Analysis",
       "AI ROI",
-    ],
-  },
-  {
-    title: "Delivery & Testing",
-    skills: [
-      "Agile",
-      "Scrum",
-      "SAFe",
-      "Jira",
-      "Confluence",
-      "UAT",
-      "Defect Triage",
-      "Release Readiness",
-      "BPMN",
-      "Process Mapping",
     ],
   },
 ]
@@ -291,48 +298,54 @@ const processSteps = [
   {
     number: "01",
     title: "Discover",
-    text: "Understand the business problem, stakeholders, users, constraints, risks, and expected outcomes.",
+    description:
+      "Understand the business problem, stakeholders, users, constraints, risks, and expected outcomes.",
   },
   {
     number: "02",
     title: "Define",
-    text: "Translate business needs into requirements, user stories, business rules, process flows, and acceptance criteria.",
+    description:
+      "Translate stakeholder needs into requirements, business rules, process flows, user stories, and acceptance criteria.",
   },
   {
     number: "03",
     title: "Analyse",
-    text: "Profile data, validate business logic, identify trends, define KPIs, and perform root-cause analysis.",
+    description:
+      "Profile data, validate business logic, identify trends, define KPIs, and perform root-cause analysis.",
   },
   {
     number: "04",
     title: "Design",
-    text: "Create future-state workflows, reporting requirements, dashboard concepts, and traceability.",
+    description:
+      "Create future-state workflows, dashboard requirements, solution concepts, and traceability artifacts.",
   },
   {
     number: "05",
     title: "Validate",
-    text: "Support data reconciliation, functional testing, UAT, defect management, and stakeholder sign-off.",
+    description:
+      "Support data reconciliation, functional testing, UAT, defect resolution, and stakeholder sign-off.",
   },
   {
     number: "06",
     title: "Deliver Value",
-    text: "Communicate insights, recommend improvements, support adoption, and measure business outcomes.",
+    description:
+      "Communicate insights, recommend improvements, support adoption, and measure business outcomes.",
   },
 ]
 
-function SectionHeader({ label, title, description }) {
+function SectionHeading({ eyebrow, title, description }) {
   return (
     <div className="mb-12 max-w-4xl">
-      <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#8a6142]">
-        {label}
+      <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#79593f]">
+        {eyebrow}
       </p>
 
-      <h2 className="mt-5 text-4xl font-bold leading-tight text-[#27231f] md:text-6xl">
+      <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#28231f] md:text-5xl">
         {title}
       </h2>
 
       {description && (
-        <p className="mt-6 text-lg leading-8 text-[#6f675f]">
+        <p className="mt-5 text-base leading-8 text-[#6f675f] md:text-lg">
           {description}
         </p>
       )}
@@ -341,17 +354,8 @@ function SectionHeader({ label, title, description }) {
 }
 
 function App() {
-  const [activeRole, setActiveRole] = useState(0)
-  const [activeExperience, setActiveExperience] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveRole((current) => (current + 1) % heroRoles.length)
-    }, 2600)
-
-    return () => clearInterval(timer)
-  }, [])
+  const [activeExperience, setActiveExperience] = useState(0)
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -362,41 +366,38 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f8f3eb] text-[#27231f] selection:bg-[#8a6142] selection:text-white">
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-[#dbc8b3]/35 blur-[120px]" />
-        <div className="absolute -right-32 top-[40%] h-96 w-96 rounded-full bg-[#eadcc9]/45 blur-[120px]" />
-      </div>
-
-      <header className="sticky top-0 z-50 border-b border-[#ded1c1] bg-[#f8f3eb]/90 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+    <div className="min-h-screen overflow-x-hidden bg-[#f7f1e8] text-[#28231f] selection:bg-[#8b674a] selection:text-white">
+      <header className="sticky top-0 z-50 border-b border-[#ddd0c0] bg-[#f7f1e8]/90 backdrop-blur-xl">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-4 md:px-8">
           <button
             type="button"
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-3"
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#7a563b] text-sm font-bold text-white">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#79593f] text-sm font-bold text-white">
               VN
             </span>
 
-            <span className="hidden font-bold sm:block">Vineela Nimmala</span>
+            <span className="hidden text-sm font-semibold sm:block">
+              Vineela Nimmala
+            </span>
           </button>
 
-          <div className="hidden items-center gap-6 text-sm font-medium text-[#5f574f] xl:flex">
+          <div className="hidden items-center gap-6 text-sm font-medium lg:flex">
             {[
               ["about", "About"],
               ["experience", "Experience"],
-              ["projects", "Projects"],
+              ["education", "Education"],
               ["certifications", "Certifications"],
+              ["projects", "Projects"],
               ["skills", "Skills"],
-              ["approach", "Approach"],
               ["contact", "Contact"],
             ].map(([sectionId, label]) => (
               <button
                 key={sectionId}
                 type="button"
                 onClick={() => scrollToSection(sectionId)}
-                className="transition hover:text-[#7a563b]"
+                className="transition hover:text-[#8b674a]"
               >
                 {label}
               </button>
@@ -408,7 +409,7 @@ function App() {
               href={resumeFile}
               target="_blank"
               rel="noreferrer"
-              className="hidden rounded-full bg-[#7a563b] px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#65452f] sm:inline-flex"
+              className="hidden rounded-full bg-[#79593f] px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#60452f] sm:inline-flex"
             >
               Resume
             </a>
@@ -416,8 +417,8 @@ function App() {
             <button
               type="button"
               onClick={() => setMenuOpen((current) => !current)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#d7c8b6] bg-white/70 xl:hidden"
-              aria-label="Open navigation"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#d8c9b7] bg-white lg:hidden"
+              aria-label="Open navigation menu"
             >
               <span className="text-xl">{menuOpen ? "×" : "☰"}</span>
             </button>
@@ -425,68 +426,81 @@ function App() {
         </nav>
 
         {menuOpen && (
-          <div className="border-t border-[#ded1c1] bg-[#fffaf4] px-5 py-5 xl:hidden">
+          <div className="border-t border-[#ddd0c0] bg-[#fffaf4] px-5 py-5 lg:hidden">
             <div className="flex flex-col gap-4">
               {[
                 ["about", "About"],
                 ["experience", "Experience"],
-                ["projects", "Projects"],
+                ["education", "Education"],
                 ["certifications", "Certifications"],
+                ["projects", "Projects"],
                 ["skills", "Skills"],
-                ["approach", "Approach"],
                 ["contact", "Contact"],
               ].map(([sectionId, label]) => (
                 <button
                   key={sectionId}
                   type="button"
                   onClick={() => scrollToSection(sectionId)}
-                  className="text-left text-sm font-medium text-[#5f574f]"
+                  className="text-left text-sm font-medium"
                 >
                   {label}
                 </button>
               ))}
+
+              <a
+                href={resumeFile}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 w-fit rounded-full bg-[#79593f] px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                View Resume
+              </a>
             </div>
           </div>
         )}
       </header>
 
-      <main className="relative z-10">
+      <main>
         <section
           id="home"
-          className="mx-auto grid min-h-[88vh] max-w-7xl items-center gap-14 px-5 py-20 md:px-8 lg:grid-cols-[1.15fr_0.85fr]"
+          className="relative mx-auto grid min-h-[88vh] max-w-7xl items-center gap-14 overflow-hidden px-5 py-20 md:px-8 lg:grid-cols-[1.2fr_0.8fr]"
         >
-          <div>
-            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-[#ccb79f] bg-white/65 px-4 py-2 text-sm font-semibold text-[#76543c]">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-[#7a563b]" />
-              Open to Business Analysis and Data Analytics opportunities
+          <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#e8d8c4] opacity-70 blur-[110px]" />
+
+          <div className="absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#d8c0a4] opacity-50 blur-[130px]" />
+
+          <div className="relative">
+            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-[#ccb79f] bg-white/70 px-4 py-2 text-sm text-[#79593f]">
+              <span className="h-2 w-2 rounded-full bg-[#79593f]" />
+              Open to new opportunities
             </div>
 
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#8a6142]">
+            <p className="text-sm font-bold uppercase tracking-[0.27em] text-[#79593f]">
               Business Analysis • Data Analytics • AI Transformation
             </p>
 
-            <h1 className="mt-6 text-5xl font-bold leading-[1.03] text-[#28231f] md:text-7xl">
+            <h1 className="mt-6 text-5xl font-semibold leading-[1.05] md:text-7xl">
               Hi, I’m
-              <span className="block text-[#805b3f]">Vineela Nimmala.</span>
+              <span className="mt-2 block text-[#79593f]">
+                Vineela Nimmala.
+              </span>
             </h1>
 
-            <div className="mt-7 min-h-[48px] text-xl font-semibold text-[#5f574f] md:text-2xl">
-              I’m a{" "}
-              <span className="text-[#805b3f]">{heroRoles[activeRole]}</span>
-              <span className="ml-1 animate-pulse text-[#805b3f]">|</span>
-            </div>
+            <h2 className="mt-7 text-xl font-medium text-[#524940] md:text-2xl">
+              Business Analyst • Data Analyst • AI Business Analyst
+            </h2>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-[#6f675f]">
               I connect business needs, trusted data, process improvement, and
               practical technology solutions to help organizations make better
-              decisions and deliver measurable value.
+              decisions and deliver measurable business value.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
               <button
                 type="button"
                 onClick={() => scrollToSection("projects")}
-                className="rounded-full bg-[#7a563b] px-7 py-3.5 font-semibold text-white shadow-lg shadow-[#7a563b]/20 transition hover:-translate-y-1 hover:bg-[#65452f]"
+                className="rounded-full bg-[#79593f] px-7 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:bg-[#60452f]"
               >
                 Explore My Work
               </button>
@@ -495,14 +509,14 @@ function App() {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-[#bda58c] bg-white/60 px-7 py-3.5 font-semibold text-[#6d4c35] transition hover:bg-[#eee2d4]"
+                className="rounded-full border border-[#bca78f] bg-white/60 px-7 py-3.5 font-semibold transition hover:bg-white"
               >
                 LinkedIn
               </a>
 
               <a
                 href={`mailto:${EMAIL}`}
-                className="rounded-full border border-[#bda58c] bg-white/60 px-7 py-3.5 font-semibold text-[#6d4c35] transition hover:bg-[#eee2d4]"
+                className="rounded-full border border-[#bca78f] bg-white/60 px-7 py-3.5 font-semibold transition hover:bg-white"
               >
                 Email Me
               </a>
@@ -510,16 +524,16 @@ function App() {
 
             <div className="mt-12 flex flex-wrap gap-3">
               {[
-                "SQL",
-                "Power BI",
-                "Tableau",
-                "Healthcare",
                 "Business Analysis",
+                "Healthcare",
+                "SQL",
+                "Tableau",
+                "Power BI",
                 "AI Readiness",
               ].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[#d7c7b5] bg-white/55 px-4 py-2 text-xs font-semibold text-[#655d55]"
+                  className="rounded-full border border-[#dacbbb] bg-[#fffaf4] px-4 py-2 text-xs font-semibold text-[#675a4e]"
                 >
                   {item}
                 </span>
@@ -528,9 +542,9 @@ function App() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md">
-            <div className="absolute -inset-5 rounded-[2.5rem] bg-[#d9c2a8]/45 blur-3xl" />
+            <div className="absolute -inset-4 rounded-[2.5rem] bg-[#dbc4aa] opacity-60 blur-2xl" />
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-[#dccdbc] bg-white/75 p-4 shadow-2xl shadow-[#7a563b]/10 backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#ded0c0] bg-[#fffaf4] p-4 shadow-[0_30px_80px_rgba(85,64,45,0.16)]">
               <img
                 src={profilePhoto}
                 alt="Vineela Nimmala"
@@ -538,22 +552,27 @@ function App() {
               />
 
               <div className="px-3 pb-3 pt-6">
-                <h2 className="text-2xl font-bold">Vineela Nimmala</h2>
+                <h2 className="text-2xl font-semibold">Vineela Nimmala</h2>
 
-                <p className="mt-2 font-semibold text-[#805b3f]">
-                  Business Analyst • Data Analyst • AI Business Analyst
+                <p className="mt-2 font-semibold text-[#79593f]">
+                  Business Analyst | Data Analyst
+                </p>
+
+                <p className="mt-4 text-sm leading-7 text-[#746b63]">
+                  Healthcare • SQL • Tableau • Power BI • Data Quality • UAT •
+                  Process Improvement • AI Readiness
                 </p>
 
                 <div className="mt-5 grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl border border-[#e0d3c5] bg-[#fffaf4] p-4">
-                    <p className="text-2xl font-bold text-[#805b3f]">5+</p>
+                  <div className="rounded-2xl bg-[#f1e6d9] p-4">
+                    <p className="text-2xl font-bold text-[#79593f]">5+</p>
                     <p className="mt-1 text-xs text-[#746b63]">
                       Years of Experience
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border border-[#e0d3c5] bg-[#fffaf4] p-4">
-                    <p className="text-2xl font-bold text-[#805b3f]">4</p>
+                  <div className="rounded-2xl bg-[#f1e6d9] p-4">
+                    <p className="text-2xl font-bold text-[#79593f]">4</p>
                     <p className="mt-1 text-xs text-[#746b63]">
                       AI & Data Certifications
                     </p>
@@ -564,107 +583,80 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-7xl px-5 py-24 md:px-8">
-          <SectionHeader
-            label="About Me"
-            title="Business understanding supported by data, systems thinking, and responsible AI."
-            description="I translate complex business challenges into structured requirements, improved processes, trusted analytics, executive reporting, and practical technology solutions."
-          />
+        <section className="border-y border-[#e1d5c7] bg-[#fffaf4] px-5 py-10 md:px-8">
+          <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["5+ Years", "Business & Data Analysis"],
+              ["3 Domains", "Healthcare, Banking & Analytics"],
+              ["MS Degree", "Information Systems & Technology"],
+              ["4 Certifications", "AI & Data Analytics"],
+            ].map(([value, label]) => (
+              <article
+                key={value}
+                className="rounded-3xl border border-[#e1d5c7] bg-white p-6 text-center"
+              >
+                <p className="text-2xl font-bold text-[#79593f]">{value}</p>
+                <p className="mt-2 text-sm text-[#746b63]">{label}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-          <div className="grid gap-5 lg:grid-cols-4">
-            <article className="rounded-[2rem] border border-[#ddcfbf] bg-white/75 p-8 shadow-sm lg:col-span-2">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#8a6142]">
-                Professional Profile
-              </p>
+        <section id="about" className="px-5 py-24 md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="About Me"
+              title="Business understanding supported by analytics, systems thinking, and responsible AI."
+              description="My work connects stakeholder needs, business processes, data definitions, technical delivery, validation, and adoption into one structured analytical approach."
+            />
 
-              <h3 className="mt-4 text-2xl font-bold">
-                Business Analyst & Data Analyst
-              </h3>
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Business Analysis",
+                  description:
+                    "Requirements elicitation, stakeholder workshops, process mapping, user stories, acceptance criteria, traceability, change management, and UAT.",
+                },
+                {
+                  title: "Data Analytics",
+                  description:
+                    "SQL, Python, Tableau, Power BI, data profiling, validation, KPI development, reconciliation, analysis, and data storytelling.",
+                },
+                {
+                  title: "AI Transformation",
+                  description:
+                    "AI readiness, responsible AI requirements, use-case evaluation, governance, human oversight, process automation, risk, and ROI.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.title}
+                  className="rounded-[2rem] border border-[#e0d2c2] bg-[#fffaf4] p-8 transition hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="mb-6 h-1.5 w-14 rounded-full bg-[#79593f]" />
 
-              <p className="mt-5 leading-8 text-[#6f675f]">
-                I bring 5+ years of experience across healthcare, banking,
-                risk, fraud, analytics, reporting, governance, Agile delivery,
-                and UAT. I connect stakeholder needs, business processes, data,
-                and technology into clear and actionable solutions.
-              </p>
-            </article>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
 
-            <article className="rounded-[2rem] border border-[#ddcfbf] bg-[#fffaf4] p-7 shadow-sm">
-              <p className="text-sm font-semibold text-[#86786c]">
-                Primary Domain
-              </p>
-
-              <p className="mt-4 text-3xl font-bold text-[#805b3f]">
-                Healthcare
-              </p>
-
-              <p className="mt-3 text-sm leading-7 text-[#6f675f]">
-                Claims, members, providers, data quality, reporting, compliance,
-                and operations.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-[#ddcfbf] bg-[#fffaf4] p-7 shadow-sm">
-              <p className="text-sm font-semibold text-[#86786c]">
-                Growth Focus
-              </p>
-
-              <p className="mt-4 text-3xl font-bold text-[#805b3f]">
-                AI + Analytics
-              </p>
-
-              <p className="mt-3 text-sm leading-7 text-[#6f675f]">
-                AI readiness, governance, automation, responsible use, and
-                business value.
-              </p>
-            </article>
-
-            <article className="rounded-[2rem] border border-[#ddcfbf] bg-white/75 p-8 shadow-sm lg:col-span-4">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#8a6142]">
-                Education
-              </p>
-
-              <div className="mt-5 flex flex-col justify-between gap-5 md:flex-row md:items-center">
-                <div>
-                  <h3 className="text-2xl font-bold">
-                    Master of Science in Information Systems and Technology
-                  </h3>
-
-                  <p className="mt-2 font-semibold text-[#805b3f]">
-                    University of North Texas
+                  <p className="mt-4 text-sm leading-7 text-[#746b63]">
+                    {item.description}
                   </p>
-
-                  <p className="mt-1 text-sm text-[#746b63]">
-                    Denton, Texas • Graduated May 2025
-                  </p>
-                </div>
-
-                <span className="w-fit rounded-full border border-[#cfbaa2] bg-[#efe3d5] px-4 py-2 text-sm font-semibold text-[#704e36]">
-                  Master’s Degree
-                </span>
-              </div>
-
-              <p className="mt-5 max-w-4xl leading-8 text-[#6f675f]">
-                Graduate foundation in enterprise information systems,
-                analytics, business processes, technology strategy,
-                data-driven decision-making, and digital transformation.
-              </p>
-            </article>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
         <section
           id="experience"
-          className="border-y border-[#dfd2c3] bg-[#fffaf4] px-5 py-24 md:px-8"
+          className="border-y border-[#e1d5c7] bg-[#fffaf4] px-5 py-24 md:px-8"
         >
           <div className="mx-auto max-w-7xl">
-            <SectionHeader
-              label="Experience"
-              title="Professional journey"
-              description="Experience across healthcare, claims analytics, banking, risk, fraud, compliance, reporting, and business transformation."
+            <SectionHeading
+              eyebrow="Professional Journey"
+              title="Experience across healthcare, analytics, banking, risk, and compliance."
+              description="My experience combines business analysis, data analysis, process improvement, reporting, governance, testing, and stakeholder collaboration."
             />
 
-            <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr]">
+            <div className="grid gap-8 lg:grid-cols-[0.32fr_0.68fr]">
               <div className="space-y-3">
                 {experiences.map((experience, index) => (
                   <button
@@ -673,11 +665,11 @@ function App() {
                     onClick={() => setActiveExperience(index)}
                     className={`w-full rounded-2xl border p-5 text-left transition ${
                       activeExperience === index
-                        ? "border-[#9c785b] bg-[#eadccc] shadow-sm"
-                        : "border-[#ddcfbf] bg-white/65 hover:bg-[#f4e9dc]"
+                        ? "border-[#9e7959] bg-[#eadccc]"
+                        : "border-[#dfd1c1] bg-white hover:bg-[#f7eee4]"
                     }`}
                   >
-                    <p className="font-bold">{experience.company}</p>
+                    <p className="font-semibold">{experience.company}</p>
 
                     <p className="mt-1 text-sm text-[#746b63]">
                       {experience.duration}
@@ -686,23 +678,23 @@ function App() {
                 ))}
               </div>
 
-              <article className="rounded-[2rem] border border-[#ddcfbf] bg-white/80 p-7 shadow-sm md:p-10">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8a6142]">
+              <article className="rounded-[2rem] border border-[#e0d2c2] bg-white p-7 shadow-sm md:p-10">
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#79593f]">
                   {experiences[activeExperience].domain}
                 </p>
 
                 <div className="mt-5 flex flex-col justify-between gap-5 md:flex-row">
                   <div>
-                    <h3 className="text-3xl font-bold">
+                    <h3 className="text-3xl font-semibold">
                       {experiences[activeExperience].company}
                     </h3>
 
-                    <p className="mt-2 text-lg font-semibold text-[#805b3f]">
+                    <p className="mt-2 text-lg text-[#79593f]">
                       {experiences[activeExperience].role}
                     </p>
                   </div>
 
-                  <span className="h-fit w-fit rounded-full border border-[#cfbaa2] bg-[#efe3d5] px-4 py-2 text-sm font-semibold text-[#704e36]">
+                  <span className="h-fit w-fit rounded-full border border-[#d7c5b1] bg-[#f5eadf] px-4 py-2 text-sm font-semibold">
                     {experiences[activeExperience].duration}
                   </span>
                 </div>
@@ -711,18 +703,17 @@ function App() {
                   {experiences[activeExperience].summary}
                 </p>
 
-                <div className="mt-8 space-y-4">
-                  {experiences[activeExperience].responsibilities.map(
-                    (responsibility) => (
-                      <div key={responsibility} className="flex gap-4">
-                        <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#805b3f]" />
-
-                        <p className="leading-7 text-[#5f574f]">
-                          {responsibility}
-                        </p>
-                      </div>
-                    ),
-                  )}
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  {experiences[activeExperience].highlights.map((highlight) => (
+                    <div
+                      key={highlight}
+                      className="rounded-2xl bg-[#f6eee5] p-5"
+                    >
+                      <p className="text-sm leading-7 text-[#675e56]">
+                        {highlight}
+                      </p>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-2">
@@ -730,7 +721,7 @@ function App() {
                     (technology) => (
                       <span
                         key={technology}
-                        className="rounded-full border border-[#dbcab8] bg-[#fffaf4] px-3 py-2 text-xs font-semibold text-[#6f675f]"
+                        className="rounded-full border border-[#dfd0bf] bg-[#fffaf4] px-3 py-2 text-xs font-semibold text-[#6d6258]"
                       >
                         {technology}
                       </span>
@@ -742,102 +733,91 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="mx-auto max-w-7xl px-5 py-24 md:px-8">
-          <SectionHeader
-            label="Selected Work"
-            title="Business analysis, analytics, and AI projects"
-            description="Projects demonstrating how I connect requirements, data, dashboards, validation, governance, and measurable business outcomes."
-          />
+        <section id="education" className="px-5 py-24 md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Education"
+              title="Academic foundation in information systems and healthcare."
+              description="My education combines enterprise information systems, data-driven decision-making, and a healthcare-focused academic foundation."
+            />
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            {projects.map((project) => (
-              <article
-                key={project.title}
-                className="group rounded-[2rem] border border-[#ddcfbf] bg-white/75 p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#a98465] hover:shadow-xl"
-              >
-                <div className="flex items-start justify-between gap-5">
-                  <span className="text-4xl font-bold text-[#c5aa8e]">
-                    {project.number}
-                  </span>
-
-                  <span className="rounded-full border border-[#d4c1ad] bg-[#f2e7da] px-3 py-2 text-xs font-semibold text-[#704e36]">
-                    {project.status}
-                  </span>
-                </div>
-
-                <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-[#8a6142]">
-                  {project.label}
-                </p>
-
-                <h3 className="mt-4 text-2xl font-bold">{project.title}</h3>
-
-                <p className="mt-5 leading-8 text-[#6f675f]">
-                  {project.description}
-                </p>
-
-                <div className="mt-7 space-y-3">
-                  {project.outcomes.map((item) => (
-                    <div key={item} className="flex gap-3">
-                      <span className="font-bold text-[#805b3f]">✓</span>
-
-                      <p className="text-sm leading-7 text-[#5f574f]">{item}</p>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {education.map((item) => (
+                <article
+                  key={item.degree}
+                  className="rounded-[2rem] border border-[#e0d2c2] bg-[#fffaf4] p-8"
+                >
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#79593f] text-lg font-bold text-white">
+                      {item.number}
                     </div>
-                  ))}
-                </div>
 
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {project.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-[#dbcab8] bg-[#fffaf4] px-3 py-2 text-xs font-semibold text-[#6f675f]"
-                    >
-                      {skill}
+                    <div>
+                      <h3 className="text-xl font-semibold">{item.degree}</h3>
+
+                      <p className="mt-2 font-semibold text-[#79593f]">
+                        {item.institution}
+                      </p>
+
+                      <p className="mt-1 text-sm text-[#746b63]">
+                        {item.location}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <span className="rounded-full border border-[#d7c5b1] bg-[#f1e6d9] px-4 py-2 text-sm font-semibold">
+                      {item.duration}
                     </span>
-                  ))}
-                </div>
-              </article>
-            ))}
+                  </div>
+
+                  <p className="mt-6 leading-8 text-[#6f675f]">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
         <section
           id="certifications"
-          className="border-y border-[#dfd2c3] bg-[#fffaf4] px-5 py-24 md:px-8"
+          className="border-y border-[#e1d5c7] bg-[#fffaf4] px-5 py-24 md:px-8"
         >
           <div className="mx-auto max-w-7xl">
-            <SectionHeader
-              label="Certifications"
-              title="Continuous learning in AI and data analytics"
-              description="These certifications strengthen my ability to use AI responsibly, improve analytical workflows, and translate emerging technology into practical business value."
+            <SectionHeading
+              eyebrow="Certifications"
+              title="Continuous learning across AI and data analytics."
+              description="These certifications strengthen my ability to apply AI responsibly, improve analytical workflows, and translate emerging technology into practical business value."
             />
 
-            <div className="grid gap-5 md:grid-cols-2">
-              {certifications.map((certification, index) => (
+            <div className="grid gap-6 md:grid-cols-2">
+              {certifications.map((certification) => (
                 <article
                   key={certification.title}
-                  className="rounded-[2rem] border border-[#ddcfbf] bg-white/80 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="rounded-[2rem] border border-[#e0d2c2] bg-white p-7 transition hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="flex items-start gap-5">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#7a563b] font-bold text-white">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#79593f] font-bold text-white">
+                      {certification.number}
+                    </div>
 
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#8a6142]">
+                      <span className="rounded-full border border-[#d8c5b0] bg-[#f1e6d9] px-3 py-2 text-xs font-bold text-[#79593f]">
                         {certification.category}
                       </span>
 
-                      <h3 className="mt-3 text-xl font-bold">
+                      <h3 className="mt-5 text-xl font-semibold">
                         {certification.title}
                       </h3>
 
-                      <p className="mt-2 font-semibold text-[#805b3f]">
+                      <p className="mt-2 font-semibold text-[#79593f]">
                         {certification.issuer}
                       </p>
                     </div>
                   </div>
 
-                  <p className="mt-6 text-sm leading-7 text-[#6f675f]">
+                  <p className="mt-6 text-sm leading-7 text-[#746b63]">
                     {certification.description}
                   </p>
                 </article>
@@ -846,61 +826,81 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="mx-auto max-w-7xl px-5 py-24 md:px-8">
-          <SectionHeader
-            label="Skills"
-            title="Business, data, delivery, and AI capabilities"
-            description="Skills are grouped to make my experience easy for recruiters and hiring managers to understand."
-          />
+        <section id="projects" className="px-5 py-24 md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Selected Portfolio Work"
+              title="Projects demonstrating business analysis, analytics, and AI thinking."
+              description="These case studies show how I approach requirements, data, dashboards, validation, governance, and measurable business outcomes."
+            />
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {skillGroups.map((group) => (
-              <article
-                key={group.title}
-                className="rounded-[2rem] border border-[#ddcfbf] bg-white/75 p-7 shadow-sm"
-              >
-                <h3 className="text-xl font-bold">{group.title}</h3>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-[#dbcab8] bg-[#fffaf4] px-3 py-2 text-xs font-semibold text-[#6f675f]"
-                    >
-                      {skill}
+            <div className="grid gap-7 lg:grid-cols-2">
+              {projects.map((project) => (
+                <article
+                  key={project.title}
+                  className="group rounded-[2rem] border border-[#e0d2c2] bg-[#fffaf4] p-8 transition hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <span className="text-4xl font-bold text-[#ccb69d]">
+                      {project.number}
                     </span>
-                  ))}
-                </div>
-              </article>
-            ))}
+
+                    <span className="rounded-full border border-[#d8c5b0] bg-[#f1e6d9] px-3 py-2 text-xs font-bold text-[#79593f]">
+                      {project.status}
+                    </span>
+                  </div>
+
+                  <p className="mt-7 text-xs font-bold uppercase tracking-[0.17em] text-[#79593f]">
+                    {project.category}
+                  </p>
+
+                  <h3 className="mt-3 text-2xl font-semibold">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-5 leading-8 text-[#6f675f]">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-7 space-y-3">
+                    {project.outcomes.map((outcome) => (
+                      <div key={outcome} className="flex gap-3">
+                        <span className="font-bold text-[#79593f]">✓</span>
+
+                        <p className="text-sm leading-7 text-[#675e56]">
+                          {outcome}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section
-          id="approach"
-          className="border-y border-[#dfd2c3] bg-[#fffaf4] px-5 py-24 md:px-8"
-        >
+        <section className="border-y border-[#e1d5c7] bg-[#fffaf4] px-5 py-24 md:px-8">
           <div className="mx-auto max-w-7xl">
-            <SectionHeader
-              label="My Approach"
-              title="From business problem to measurable value"
-              description="A simple delivery flow showing how I connect business analysis, data analysis, solution design, validation, and adoption."
+            <SectionHeading
+              eyebrow="My Delivery Flow"
+              title="From business problem to measurable business value."
+              description="A clear view of how I connect discovery, requirements, data analysis, solution design, validation, and adoption."
             />
 
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {processSteps.map((step) => (
                 <article
                   key={step.number}
-                  className="rounded-[2rem] border border-[#ddcfbf] bg-white/80 p-7 shadow-sm"
+                  className="rounded-[2rem] border border-[#e0d2c2] bg-white p-7"
                 >
-                  <span className="text-sm font-bold text-[#8a6142]">
+                  <span className="text-sm font-bold text-[#79593f]">
                     {step.number}
                   </span>
 
-                  <h3 className="mt-5 text-xl font-bold">{step.title}</h3>
+                  <h3 className="mt-5 text-xl font-semibold">{step.title}</h3>
 
-                  <p className="mt-4 text-sm leading-7 text-[#6f675f]">
-                    {step.text}
+                  <p className="mt-4 text-sm leading-7 text-[#746b63]">
+                    {step.description}
                   </p>
                 </article>
               ))}
@@ -908,61 +908,100 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-6xl px-5 py-24 md:px-8">
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-[#d8c6b3] bg-gradient-to-br from-[#eadcca] via-[#fffaf4] to-[#f0e4d6] p-9 text-center shadow-xl shadow-[#7a563b]/10 md:p-16">
-            <div className="relative">
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#8a6142]">
-                Let’s Connect
-              </p>
+        <section id="skills" className="px-5 py-24 md:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Capabilities"
+              title="Skills connecting business, data, delivery, and AI."
+              description="The skills are grouped so recruiters and hiring managers can quickly understand my professional profile."
+            />
 
-              <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
-                Let’s turn business challenges into meaningful solutions.
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#6f675f]">
-                Open to Business Analyst, Data Analyst, Business Systems
-                Analyst, Healthcare Analyst, BI Analyst, and AI Business Analyst
-                opportunities.
-              </p>
-
-              <div className="mt-10 flex flex-wrap justify-center gap-4">
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="rounded-full bg-[#7a563b] px-7 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:bg-[#65452f]"
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {skillGroups.map((group) => (
+                <article
+                  key={group.title}
+                  className="rounded-[2rem] border border-[#e0d2c2] bg-[#fffaf4] p-7"
                 >
-                  Email Me
-                </a>
+                  <h3 className="text-xl font-semibold">{group.title}</h3>
 
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-[#b99f84] bg-white/70 px-7 py-3.5 font-semibold text-[#6d4c35] transition hover:bg-[#eee2d4]"
-                >
-                  LinkedIn
-                </a>
+                  <div className="mt-6 flex flex-wrap gap-2.5">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-[#ddcdbc] bg-white px-3 py-2 text-xs font-semibold text-[#695f55]"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <a
-                  href={resumeFile}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-[#b99f84] bg-white/70 px-7 py-3.5 font-semibold text-[#6d4c35] transition hover:bg-[#eee2d4]"
-                >
-                  Download Resume
-                </a>
-              </div>
+        <section
+          id="contact"
+          className="border-t border-[#e1d5c7] bg-[#fffaf4] px-5 py-24 md:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-[#ddcdbc] bg-[#eee0d0] p-9 text-center md:p-16">
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#cbaa88] opacity-40 blur-[100px]" />
 
-              <div className="mt-10 space-y-2 text-sm text-[#7a7067]">
-                <p>{EMAIL}</p>
-                <p>linkedin.com/in/vineela-nimmala-901471300</p>
-                <p>{PORTFOLIO_URL}</p>
+              <div className="relative">
+                <p className="text-sm font-bold uppercase tracking-[0.27em] text-[#79593f]">
+                  Let’s Connect
+                </p>
+
+                <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
+                  Let’s turn business challenges into meaningful solutions.
+                </h2>
+
+                <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#6f675f]">
+                  Open to Business Analyst, Data Analyst, Business Systems
+                  Analyst, Healthcare Analyst, BI Analyst, and AI Business
+                  Analyst opportunities.
+                </p>
+
+                <div className="mt-10 flex flex-wrap justify-center gap-4">
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="rounded-full bg-[#79593f] px-7 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:bg-[#60452f]"
+                  >
+                    Email Me
+                  </a>
+
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-[#bca78f] bg-white/60 px-7 py-3.5 font-semibold transition hover:bg-white"
+                  >
+                    LinkedIn
+                  </a>
+
+                  <a
+                    href={resumeFile}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-[#bca78f] bg-white/60 px-7 py-3.5 font-semibold transition hover:bg-white"
+                  >
+                    Download Resume
+                  </a>
+                </div>
+
+                <div className="mt-10 space-y-2 text-sm text-[#746b63]">
+                  <p>{EMAIL}</p>
+                  <p>linkedin.com/in/vineela-nimmala-901471300</p>
+                  <p>{PORTFOLIO_URL}</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-[#dfd2c3] bg-[#f8f3eb] px-5 py-8 text-center text-sm text-[#82776d]">
+      <footer className="border-t border-[#dfd2c3] bg-[#f7f1e8] px-5 py-8 text-center text-sm text-[#81766b]">
         © 2026 Vineela Nimmala • Business Analysis • Data Analytics • AI
         Transformation
       </footer>
