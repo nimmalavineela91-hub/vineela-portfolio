@@ -8,14 +8,14 @@ body,
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
 button,
 a,
 input,
 textarea,
 select {
   font: inherit;
-}
-
-img {
-  max-width: 100%;
 }
