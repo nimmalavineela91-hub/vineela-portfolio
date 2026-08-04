@@ -3,8 +3,7 @@ import "./App.css";
 const baseUrl = import.meta.env.BASE_URL;
 
 const photoUrl = `${baseUrl}photo.jpg`;
-const resumeUrl = `${baseUrl}Vineela_Nimmala_Resume.pdf`;
-
+const resumeUrl = `${import.meta.env.BASE_URL}Vineela_Nimmala_Resume.pdf`;
 const profile = {
   name: "Vineela Nimmala",
   title: "Business Analyst | Data Analyst | Project & Process Improvement",
