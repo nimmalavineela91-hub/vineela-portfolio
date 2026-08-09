@@ -8,6 +8,7 @@ const resumeUrl = `${baseUrl}Vineela_Nimmala_Resume.pdf`;
 const profile = {
   name: "Vineela Nimmala",
   title: "Business Analyst | Data Analyst",
+  tagline: "Business Analysis • Data Analytics • Process Improvement",
   location: "Hayward, California",
   phone: "940-703-8240",
   email: "nimmalavineela91@gmail.com",
@@ -15,7 +16,7 @@ const profile = {
   github: "https://github.com/nimmalavineela91-hub",
 };
 
-const stats = [
+const metrics = [
   {
     value: "5+",
     label: "Years of Experience",
@@ -39,7 +40,7 @@ const processSteps = [
     number: "01",
     title: "Discover",
     description:
-      "Understand the business problem, stakeholder goals, current processes, data sources, risks, and expected outcomes.",
+      "Understand business objectives, stakeholders, pain points, current processes, risks, data sources, and expected outcomes.",
   },
   {
     number: "02",
@@ -51,51 +52,50 @@ const processSteps = [
     number: "03",
     title: "Map",
     description:
-      "Create process maps, source-to-target mappings, workflows, and clear traceability between business requirements and data.",
+      "Create process maps and source-to-target mappings that connect business requirements with data and technical delivery.",
   },
   {
     number: "04",
     title: "Analyze",
     description:
-      "Profile data, validate quality, write SQL, define KPIs, perform analytical modeling, and identify trends or business issues.",
+      "Profile data, validate quality, write SQL, define KPIs, build analytical models, and identify trends or business issues.",
   },
   {
     number: "05",
     title: "Visualize",
     description:
-      "Design Tableau and Power BI dashboards that turn complex data into clear operational and executive-level insights.",
+      "Build Tableau and Power BI dashboards that transform complex data into clear operational and executive insights.",
   },
   {
     number: "06",
     title: "Validate & Deliver",
     description:
-      "Coordinate testing, UAT, defect resolution, stakeholder sign-off, deployment readiness, and adoption.",
+      "Coordinate testing, UAT, defect resolution, stakeholder sign-off, deployment readiness, and solution adoption.",
   },
 ];
 
-const experience = [
+const experiences = [
   {
     company: "Molina Healthcare",
     role: "Business Analyst & Data Analyst",
     duration: "Jan 2025 – Present",
-    domain: "Healthcare • Data Analytics • Business Analysis",
+    domain: "Healthcare • Enterprise Analytics",
     summary:
       "Supporting enterprise requirements, data discovery, data quality, analytical modeling, reporting, cloud data workflows, and executive decision support.",
     bullets: [
-      "Facilitate cross-functional stakeholder workshops and create BRD, FRD, SRD, and RTM documentation with clear acceptance criteria.",
+      "Facilitate cross-functional stakeholder workshops and produce BRD, FRD, SRD, and RTM artifacts with clear acceptance criteria and traceability.",
       "Lead enterprise-wide data discovery and profiling across CRM, billing, support, and finance systems.",
-      "Design relational 3NF and dimensional star/snowflake models in Snowflake and BigQuery.",
-      "Develop and optimize SQL, PySpark, and Spark SQL transformations for cleansing and enrichment.",
-      "Partner with Data Engineers on Apache Airflow, AWS Glue, and dbt pipelines.",
-      "Design executive Power BI and Tableau Cloud dashboards tracking CAC, CLV, churn, NPS, and revenue.",
+      "Design scalable relational 3NF and dimensional star/snowflake models in Snowflake and BigQuery.",
+      "Develop and optimize SQL, PySpark, and Spark SQL transformations for data cleansing and enrichment.",
+      "Partner with Data Engineers to orchestrate Apache Airflow, AWS Glue, and dbt pipelines.",
+      "Design executive dashboards using Power BI and Tableau Cloud for CAC, CLV, churn, NPS, and revenue.",
       "Implement Row-Level Security and data access matrices across BI platforms.",
-      "Build analytical prototypes using Python, R, and Stata for risk and scoring analysis.",
+      "Build analytical prototypes using Python, R, and Stata for financial-risk analysis.",
     ],
     tools: [
       "SQL Server",
       "PostgreSQL",
       "Snowflake",
-      "BigQuery",
       "Spark",
       "Airflow",
       "AWS Glue",
@@ -112,17 +112,17 @@ const experience = [
     company: "Cognizant",
     role: "Business Analyst & Data Analyst",
     duration: "Sep 2022 – Aug 2023",
-    domain: "Healthcare Claims • Data Integration • Analytics",
+    domain: "Healthcare Claims • Data Analytics",
     summary:
-      "Worked on healthcare claims data, requirements documentation, data mapping, dimensional modeling, governance, SQL analysis, cloud pipelines, and UAT.",
+      "Worked across healthcare requirements, data mappings, dimensional models, cloud pipelines, SQL analysis, governance, reporting, and UAT.",
     bullets: [
-      "Authored BRDs, FRDs, Source-to-Target Mappings, SOPs, and test evidence with end-to-end traceability.",
-      "Mapped EDI 837/835, HL7, flat-file, Oracle, and mainframe data into curated analytical schemas.",
-      "Developed PySpark pipelines on Databricks and Amazon EMR, reducing batch windows by more than 50%.",
+      "Authored BRDs, FRDs, Source-to-Target Mappings, SOPs, and test evidence with full traceability.",
+      "Mapped EDI 837/835, HL7, flat files, Oracle, and mainframe data into curated analytical schemas.",
+      "Developed PySpark pipelines on Databricks and Amazon EMR, reducing batch processing windows by more than 50%.",
       "Designed star schemas for claims, providers, procedures, and payments in Snowflake and Amazon Redshift.",
-      "Established PHI governance using RLS, masked views, and role-based access controls.",
-      "Created complex SQL, T-SQL, and CTE-based queries for normalization and payer rules.",
-      "Coordinated clinician and business-user UAT through Azure DevOps.",
+      "Established PHI governance using Row-Level Security, masked views, and role-based access controls.",
+      "Created complex SQL, T-SQL, and CTE-based queries for code normalization and payer rules.",
+      "Coordinated clinician and business-user UAT using Azure DevOps.",
     ],
     tools: [
       "SQL",
@@ -145,15 +145,15 @@ const experience = [
     duration: "Jul 2021 – Aug 2022",
     domain: "Risk • Fraud • Compliance",
     summary:
-      "Supported business requirements, fraud-risk analysis, governance, cloud-data architecture, reporting, audit readiness, and operational monitoring.",
+      "Supported fraud-risk requirements, regulatory controls, data lineage, cloud-data architecture, dashboards, and operational monitoring.",
     bullets: [
-      "Collaborated with Risk, Fraud, and Compliance stakeholders to document BRDs and FRDs.",
-      "Conducted impact assessments for fraud and risk model thresholds.",
+      "Collaborated with Risk, Fraud, and Compliance stakeholders to create BRDs and FRDs.",
+      "Conducted impact assessments for fraud and risk-model thresholds.",
       "Built audit-ready lineage documentation aligned with NIST and PCI-DSS standards.",
-      "Designed AWS S3 and Hadoop data-lake structures with raw and curated zones.",
+      "Designed AWS S3 and Hadoop data-lake architectures using raw and curated zones.",
       "Developed fraud heatmaps, chargeback trend analysis, and operational dashboards using Tableau and Power BI.",
-      "Improved fraud-agent productivity by 15% through better analytical reporting.",
-      "Implemented AWS CloudWatch and SQL monitoring, reducing MTTR by 32%.",
+      "Improved fraud-agent productivity by 15%.",
+      "Implemented AWS CloudWatch and custom SQL monitoring, reducing MTTR by 32%.",
     ],
     tools: [
       "SQL",
@@ -196,11 +196,11 @@ const skillGroups = [
       "Advanced SQL",
       "CTEs",
       "Window Functions",
+      "Dimensional Modeling",
+      "Relational Modeling",
       "Data Profiling",
       "Data Quality",
       "Data Mapping",
-      "Relational Modeling",
-      "Dimensional Modeling",
       "ETL",
       "Reconciliation",
     ],
@@ -217,7 +217,7 @@ const skillGroups = [
       "DAX",
       "Statistical Analysis",
       "A/B Testing",
-      "Data Storytelling",
+      "Data Visualization",
     ],
   },
   {
@@ -235,7 +235,7 @@ const skillGroups = [
     ],
   },
   {
-    title: "Delivery & Collaboration",
+    title: "Tools & Delivery",
     skills: [
       "JIRA",
       "Confluence",
@@ -278,16 +278,15 @@ const certifications = [
   },
 ];
 
-function SectionHeader({ eyebrow, title, description }) {
+function SectionHeader({ label, title, description }) {
   return (
     <div className="section-header">
-      <p className="section-eyebrow">{eyebrow}</p>
+      <p className="section-label">{label}</p>
+
       <h2>{title}</h2>
 
       {description && (
-        <p className="section-description">
-          {description}
-        </p>
+        <p className="section-description">{description}</p>
       )}
     </div>
   );
@@ -296,17 +295,17 @@ function SectionHeader({ eyebrow, title, description }) {
 function App() {
   return (
     <div className="portfolio">
-      <header className="header">
+      <header className="navbar">
         <a href="#home" className="brand">
-          <span className="brand-icon">VN</span>
+          <span className="brand-mark">VN</span>
 
-          <span className="brand-text">
+          <span className="brand-copy">
             <strong>Vineela Nimmala</strong>
-            <small>Business Analyst & Data Analyst</small>
+            <small>Business Analyst • Data Analyst</small>
           </span>
         </a>
 
-        <nav className="navigation">
+        <nav>
           <a href="#about">About</a>
           <a href="#process">Process</a>
           <a href="#experience">Experience</a>
@@ -319,47 +318,36 @@ function App() {
           href={resumeUrl}
           target="_blank"
           rel="noreferrer"
-          className="header-button"
+          className="resume-button"
         >
           Resume
         </a>
       </header>
 
       <main>
-        <section
-          id="home"
-          className="hero page-width"
-        >
-          <div className="hero-content">
+        <section id="home" className="hero container">
+          <div className="hero-copy">
             <div className="availability">
-              <span className="availability-dot"></span>
+              <span></span>
               Open to Business Analyst & Data Analyst opportunities
             </div>
 
-            <p className="hero-label">
-              BUSINESS ANALYSIS • DATA ANALYTICS • DATA-DRIVEN DELIVERY
-            </p>
+            <p className="hero-label">{profile.tagline}</p>
 
             <h1>
               Turning complex business needs into
-              <span>
-                {" "}
-                actionable data solutions.
-              </span>
+              <em> actionable data solutions.</em>
             </h1>
 
             <p className="hero-description">
-              Business Analyst and Data Analyst with 5+ years of experience
-              translating complex business requirements into analytical
+              Business Analyst and Data Analyst with 5+ years of
+              experience translating complex business needs into actionable
               solutions — from requirements gathering and data mapping through
-              testing, deployment, reporting, and adoption.
+              testing, deployment, analytics, reporting, and adoption.
             </p>
 
-            <div className="hero-buttons">
-              <a
-                href="#process"
-                className="button primary-button"
-              >
+            <div className="hero-actions">
+              <a href="#process" className="btn btn-primary">
                 Explore My Process
               </a>
 
@@ -367,7 +355,7 @@ function App() {
                 href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="button secondary-button"
+                className="btn btn-secondary"
               >
                 View Resume
               </a>
@@ -375,13 +363,13 @@ function App() {
               <a
                 href={resumeUrl}
                 download
-                className="button secondary-button"
+                className="btn btn-secondary"
               >
                 Download Resume
               </a>
             </div>
 
-            <div className="contact-row">
+            <div className="hero-contact">
               <span>{profile.location}</span>
 
               <a href={`mailto:${profile.email}`}>
@@ -395,24 +383,26 @@ function App() {
           </div>
 
           <div className="hero-profile">
-            <div className="circle circle-large"></div>
-            <div className="circle circle-small"></div>
+            <div className="decor-ring decor-ring-large"></div>
+            <div className="decor-ring decor-ring-small"></div>
 
             <article className="profile-card">
-              <div className="photo-wrapper">
+              <div className="profile-image-area">
                 <img
                   src={photoUrl}
                   alt="Vineela Nimmala"
-                  className="profile-photo"
+                  className="profile-image"
                 />
               </div>
 
-              <div className="profile-info">
+              <div className="profile-content">
                 <p>Professional Profile</p>
+
                 <h2>{profile.name}</h2>
+
                 <h3>{profile.title}</h3>
 
-                <div className="profile-actions">
+                <div className="profile-links">
                   <a
                     href={profile.linkedin}
                     target="_blank"
@@ -434,92 +424,76 @@ function App() {
           </div>
         </section>
 
-        <section className="stats page-width">
-          {stats.map((stat) => (
-            <article
-              className="stat-card"
-              key={stat.label}
-            >
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
+        <section className="metrics container">
+          {metrics.map((metric) => (
+            <article className="metric-card" key={metric.label}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
             </article>
           ))}
         </section>
 
-        <section
-          id="about"
-          className="section page-width"
-        >
+        <section id="about" className="section container">
           <SectionHeader
-            eyebrow="ABOUT"
-            title="Business understanding supported by data and analytical thinking."
+            label="ABOUT ME"
+            title="Business understanding supported by data, structure, and collaboration."
             description="My experience connects business requirements, stakeholder needs, data quality, analytics, reporting, testing, and project delivery."
           />
 
-          <div className="about-grid">
-            <article className="info-card">
-              <span>01</span>
+          <div className="three-column-grid">
+            <article className="feature-card">
+              <span className="feature-number">01</span>
 
               <h3>Business Analysis</h3>
 
               <p>
-                Requirements elicitation, BRD/FRD/RTM development, user
-                stories, process mapping, stakeholder management, GAP analysis,
-                and Agile delivery.
+                Requirements elicitation, BRD/FRD/RTM creation,
+                user stories, acceptance criteria, stakeholder management,
+                GAP analysis, process mapping, and Agile delivery.
               </p>
             </article>
 
-            <article className="info-card">
-              <span>02</span>
+            <article className="feature-card">
+              <span className="feature-number">02</span>
 
               <h3>Data Analytics</h3>
 
               <p>
                 Advanced SQL, Python, R, data profiling, data quality,
-                dimensional modeling, ETL workflows, KPI analysis, and
-                analytical validation.
+                dimensional modeling, ETL, KPI development, and analytical
+                validation.
               </p>
             </article>
 
-            <article className="info-card">
-              <span>03</span>
+            <article className="feature-card">
+              <span className="feature-number">03</span>
 
-              <h3>BI & Decision Support</h3>
+              <h3>Business Intelligence</h3>
 
               <p>
                 Tableau and Power BI dashboards, executive reporting,
-                data visualization, KPI monitoring, and clear business
-                storytelling.
+                data visualization, KPI monitoring, and business-focused
+                data storytelling.
               </p>
             </article>
           </div>
         </section>
 
-        <section
-          id="process"
-          className="section page-width"
-        >
+        <section id="process" className="section container">
           <SectionHeader
-            eyebrow="MY FLOW PROCESS"
-            title="From business requirement to measurable outcome."
-            description="A structured end-to-end view of how I approach business and data initiatives."
+            label="MY FLOW PROCESS"
+            title="From business problem to measurable outcome."
+            description="A clear six-step view of how I approach business and data initiatives."
           />
 
           <div className="process-grid">
             {processSteps.map((step, index) => (
-              <article
-                className="process-card"
-                key={step.number}
-              >
-                <div className="process-header">
-                  <span className="process-number">
-                    {step.number}
-                  </span>
+              <article className="process-card" key={step.number}>
+                <div className="process-top">
+                  <span className="process-number">{step.number}</span>
 
-                  {index !== processSteps.length - 1 && (
-                    <span className="flow-arrow">
-                      →
-                    </span>
+                  {index < processSteps.length - 1 && (
+                    <span className="process-arrow">→</span>
                   )}
                 </div>
 
@@ -531,59 +505,51 @@ function App() {
           </div>
         </section>
 
-        <section
-          id="experience"
-          className="section page-width"
-        >
+        <section id="experience" className="section container">
           <SectionHeader
-            eyebrow="PROFESSIONAL EXPERIENCE"
+            label="PROFESSIONAL EXPERIENCE"
             title="Career journey across healthcare, analytics, risk, fraud, and compliance."
-            description="A recruiter-friendly timeline based on my professional experience."
+            description="A recruiter-friendly timeline based directly on my professional experience."
           />
 
           <div className="timeline">
-            {experience.map((job, index) => (
+            {experiences.map((job, index) => (
               <article
                 className="timeline-item"
-                key={job.company}
+                key={`${job.company}-${job.duration}`}
               >
-                <div className="timeline-number">
+                <div className="timeline-marker">
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
-                <div className="job-card">
-                  <div className="job-header">
+                <div className="experience-card">
+                  <div className="experience-header">
                     <div>
-                      <p className="job-domain">
-                        {job.domain}
-                      </p>
+                      <p className="domain">{job.domain}</p>
 
                       <h3>{job.company}</h3>
+
                       <h4>{job.role}</h4>
                     </div>
 
-                    <span className="job-duration">
+                    <span className="duration">
                       {job.duration}
                     </span>
                   </div>
 
-                  <p className="job-summary">
+                  <p className="experience-summary">
                     {job.summary}
                   </p>
 
                   <ul>
                     {job.bullets.map((bullet) => (
-                      <li key={bullet}>
-                        {bullet}
-                      </li>
+                      <li key={bullet}>{bullet}</li>
                     ))}
                   </ul>
 
-                  <div className="tool-tags">
+                  <div className="tags">
                     {job.tools.map((tool) => (
-                      <span key={tool}>
-                        {tool}
-                      </span>
+                      <span key={tool}>{tool}</span>
                     ))}
                   </div>
                 </div>
@@ -592,28 +558,20 @@ function App() {
           </div>
         </section>
 
-        <section
-          id="skills"
-          className="section page-width"
-        >
+        <section id="skills" className="section container">
           <SectionHeader
-            eyebrow="CORE SKILLS"
+            label="CORE SKILLS"
             title="Business, data, analytics, cloud, and delivery capabilities."
           />
 
           <div className="skills-grid">
             {skillGroups.map((group) => (
-              <article
-                className="skill-card"
-                key={group.title}
-              >
+              <article className="skill-card" key={group.title}>
                 <h3>{group.title}</h3>
 
-                <div className="skill-tags">
+                <div className="tags">
                   {group.skills.map((skill) => (
-                    <span key={skill}>
-                      {skill}
-                    </span>
+                    <span key={skill}>{skill}</span>
                   ))}
                 </div>
               </article>
@@ -621,22 +579,16 @@ function App() {
           </div>
         </section>
 
-        <section
-          id="certifications"
-          className="section page-width"
-        >
+        <section id="certifications" className="section container">
           <SectionHeader
-            eyebrow="CERTIFICATIONS"
+            label="CERTIFICATIONS"
             title="Continuous learning across AI and data analytics."
-            description="Certifications supporting my analytical, AI, and business problem-solving skills."
+            description="Professional certifications supporting AI fluency, analytical thinking, and data-driven problem solving."
           />
 
           <div className="cert-grid">
             {certifications.map((cert) => (
-              <article
-                className="cert-card"
-                key={cert.title}
-              >
+              <article className="cert-card" key={cert.title}>
                 <span className="cert-number">
                   {cert.number}
                 </span>
@@ -651,57 +603,45 @@ function App() {
           </div>
         </section>
 
-        <section className="section page-width">
+        <section className="section container">
           <article className="education-card">
             <div>
-              <p className="education-label">
-                EDUCATION
-              </p>
+              <p className="education-label">EDUCATION</p>
 
               <h2>
                 Master of Science in Information Systems and Technology
               </h2>
 
-              <h3>
-                University of North Texas
-              </h3>
+              <h3>University of North Texas</h3>
 
-              <span>
-                Denton, Texas • 2025
-              </span>
+              <span>Denton, Texas • 2025</span>
             </div>
 
-            <div className="education-symbol">
-              MS
-            </div>
+            <div className="education-circle">MS</div>
           </article>
         </section>
 
-        <section
-          id="contact"
-          className="section page-width"
-        >
+        <section id="contact" className="section container">
           <article className="contact-card">
             <div>
-              <p className="contact-label">
-                LET&apos;S CONNECT
-              </p>
+              <p className="contact-label">LET&apos;S CONNECT</p>
 
               <h2>
-                Ready to transform business needs into meaningful analytical solutions.
+                Ready to turn business challenges into clear,
+                data-driven solutions.
               </h2>
 
-              <p>
+              <p className="contact-description">
                 Open to Business Analyst, Data Analyst, Business Systems
-                Analyst, BI Analyst, Healthcare Analyst, and analytics-focused
-                opportunities.
+                Analyst, BI Analyst, Healthcare Analyst, and
+                analytics-focused opportunities.
               </p>
             </div>
 
-            <div className="contact-buttons">
+            <div className="contact-actions">
               <a
                 href={`mailto:${profile.email}`}
-                className="button primary-button"
+                className="btn btn-primary"
               >
                 Email Me
               </a>
@@ -710,7 +650,7 @@ function App() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="button secondary-button"
+                className="btn btn-secondary"
               >
                 LinkedIn
               </a>
@@ -719,7 +659,7 @@ function App() {
                 href={resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="button secondary-button"
+                className="btn btn-secondary"
               >
                 Open Resume
               </a>
