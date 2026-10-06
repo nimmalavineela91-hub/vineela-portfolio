@@ -3,35 +3,88 @@ import "./App.css";
 const baseUrl = import.meta.env.BASE_URL;
 
 const photoUrl = `${baseUrl}photo.jpg`;
-const resumeUrl = `${baseUrl}Vineela_Nimmala_Resume.pdf`;
 
 const profile = {
   name: "Vineela Nimmala",
-  title: "Business Analyst | Data Analyst",
-  tagline: "Business Analysis • Data Analytics • Process Improvement",
-  location: "Hayward, California",
-  phone: "940-703-8240",
-  email: "nimmalavineela91@gmail.com",
-  linkedin: "https://www.linkedin.com/in/vineela-n-901471300",
-  github: "https://github.com/nimmalavineela91-hub",
+  title: "Senior Business Analyst",
+  subtitle:
+    "Healthcare • Banking & Financial Services • Telecom • Technology",
+  email: "vineelan19@gmail.com",
+  phone: "(510) 585-4198",
+  linkedin:
+    "https://www.linkedin.com/in/vineela-nimmala-901471300",
 };
 
 const metrics = [
   {
-    value: "5+",
-    label: "Years of Experience",
+    value: "10+",
+    label: "Years of Business Analysis Experience",
   },
   {
-    value: "50%+",
-    label: "Batch Processing Improvement",
+    value: "5",
+    label: "Major Client Engagements",
   },
   {
-    value: "15%",
-    label: "Fraud Agent Productivity Increase",
+    value: "4",
+    label: "Industry Domains",
   },
   {
-    value: "32%",
-    label: "MTTR Reduction",
+    value: "E2E",
+    label: "SDLC Delivery Experience",
+  },
+];
+
+const aboutCards = [
+  {
+    number: "01",
+    title: "Requirements Analysis",
+    text:
+      "Requirements elicitation, stakeholder interviews, JAD sessions, BRDs, SRS/FRS, use cases, user stories, acceptance criteria and RTM.",
+  },
+  {
+    number: "02",
+    title: "Data & Validation",
+    text:
+      "SQL, Python, data extraction, data profiling, data mining, ETL validation, SQL test scripts and data-quality analysis.",
+  },
+  {
+    number: "03",
+    title: "Process & Modeling",
+    text:
+      "GAP analysis, SWOT, Fit & Impact analysis, UML diagrams, process flows, wireframes, mockups and data models.",
+  },
+  {
+    number: "04",
+    title: "Testing & Delivery",
+    text:
+      "UAT, defect management, Agile collaboration, backlog support, change management and cross-functional release delivery.",
+  },
+];
+
+const domains = [
+  {
+    number: "01",
+    title: "Banking & Financial Services",
+    text:
+      "Investment and portfolio management, fund accounting, mortgage banking, mobile banking, FIX, SWIFT, ACH and ISO 20022.",
+  },
+  {
+    number: "02",
+    title: "Healthcare",
+    text:
+      "Medicare, Medicaid, CMS, HIPAA, MMIS, MITA, HEDIS, claims processing, enrollment, EDI and patient communication.",
+  },
+  {
+    number: "03",
+    title: "Telecom",
+    text:
+      "5G Home Internet, self-install and professional-install workflows, SQL validation, process modeling and executive reporting.",
+  },
+  {
+    number: "04",
+    title: "Technology & SaaS",
+    text:
+      "SaaS analytics, ETL validation, statistical analysis, business reporting, Power BI dashboards and enterprise process improvement.",
   },
 ];
 
@@ -39,135 +92,242 @@ const processSteps = [
   {
     number: "01",
     title: "Discover",
-    description:
-      "Understand business objectives, stakeholders, pain points, current processes, risks, data sources, and expected outcomes.",
+    text:
+      "Engage stakeholders and SMEs through interviews, JAD sessions and workshops to understand business goals, pain points and requirements.",
   },
   {
     number: "02",
-    title: "Define",
-    description:
-      "Translate business needs into BRDs, FRDs, RTMs, user stories, acceptance criteria, business rules, and project scope.",
+    title: "Analyze",
+    text:
+      "Perform GAP, SWOT, Fit & Impact and risk analysis to understand current-state limitations, dependencies and future-state opportunities.",
   },
   {
     number: "03",
-    title: "Map",
-    description:
-      "Create process maps and source-to-target mappings that connect business requirements with data and technical delivery.",
+    title: "Document",
+    text:
+      "Translate business needs into BRDs, SRS/FRS documents, use cases, user stories, acceptance criteria and Requirements Traceability Matrices.",
   },
   {
     number: "04",
-    title: "Analyze",
-    description:
-      "Profile data, validate quality, write SQL, define KPIs, build analytical models, and identify trends or business issues.",
+    title: "Model",
+    text:
+      "Create UML diagrams, process flows, wireframes, mockups, data models and current-state/future-state visualizations.",
   },
   {
     number: "05",
-    title: "Visualize",
-    description:
-      "Build Tableau and Power BI dashboards that transform complex data into clear operational and executive insights.",
+    title: "Validate",
+    text:
+      "Use SQL, Python and testing techniques to validate data, support ETL testing, execute test scenarios and coordinate UAT.",
   },
   {
     number: "06",
-    title: "Validate & Deliver",
-    description:
-      "Coordinate testing, UAT, defect resolution, stakeholder sign-off, deployment readiness, and solution adoption.",
+    title: "Deliver",
+    text:
+      "Partner with Product Owners, developers, QA teams and stakeholders to manage releases, defects, change and business adoption.",
   },
 ];
 
 const experiences = [
   {
-    company: "Molina Healthcare",
-    role: "Business Analyst & Data Analyst",
-    duration: "Jan 2025 – Present",
-    domain: "Healthcare • Enterprise Analytics",
-    summary:
-      "Supporting enterprise requirements, data discovery, data quality, analytical modeling, reporting, cloud data workflows, and executive decision support.",
-    bullets: [
-      "Facilitate cross-functional stakeholder workshops and produce BRD, FRD, SRD, and RTM artifacts with clear acceptance criteria and traceability.",
-      "Lead enterprise-wide data discovery and profiling across CRM, billing, support, and finance systems.",
-      "Design scalable relational 3NF and dimensional star/snowflake models in Snowflake and BigQuery.",
-      "Develop and optimize SQL, PySpark, and Spark SQL transformations for data cleansing and enrichment.",
-      "Partner with Data Engineers to orchestrate Apache Airflow, AWS Glue, and dbt pipelines.",
-      "Design executive dashboards using Power BI and Tableau Cloud for CAC, CLV, churn, NPS, and revenue.",
-      "Implement Row-Level Security and data access matrices across BI platforms.",
-      "Build analytical prototypes using Python, R, and Stata for financial-risk analysis.",
-    ],
-    tools: [
-      "SQL Server",
-      "PostgreSQL",
-      "Snowflake",
-      "Spark",
-      "Airflow",
-      "AWS Glue",
-      "dbt",
-      "Tableau",
-      "Power BI",
-      "Python",
-      "R",
-      "JIRA",
-      "Confluence",
-    ],
-  },
-  {
-    company: "Cognizant",
-    role: "Business Analyst & Data Analyst",
-    duration: "Sep 2022 – Aug 2023",
-    domain: "Healthcare Claims • Data Analytics",
-    summary:
-      "Worked across healthcare requirements, data mappings, dimensional models, cloud pipelines, SQL analysis, governance, reporting, and UAT.",
-    bullets: [
-      "Authored BRDs, FRDs, Source-to-Target Mappings, SOPs, and test evidence with full traceability.",
-      "Mapped EDI 837/835, HL7, flat files, Oracle, and mainframe data into curated analytical schemas.",
-      "Developed PySpark pipelines on Databricks and Amazon EMR, reducing batch processing windows by more than 50%.",
-      "Designed star schemas for claims, providers, procedures, and payments in Snowflake and Amazon Redshift.",
-      "Established PHI governance using Row-Level Security, masked views, and role-based access controls.",
-      "Created complex SQL, T-SQL, and CTE-based queries for code normalization and payer rules.",
-      "Coordinated clinician and business-user UAT using Azure DevOps.",
-    ],
-    tools: [
-      "SQL",
-      "T-SQL",
-      "PySpark",
-      "Databricks",
-      "Amazon EMR",
-      "Snowflake",
-      "Redshift",
-      "ADF",
-      "AWS Glue",
-      "Tableau",
-      "Power BI",
-      "Azure DevOps",
-    ],
-  },
-  {
-    company: "Wipro",
+    client: "Capital One",
     role: "Business Analyst",
-    duration: "Jul 2021 – Aug 2022",
-    domain: "Risk • Fraud • Compliance",
+    duration: "May 2023 – Present",
+    location: "San Francisco, CA",
+    project:
+      "Investment Portfolio Management & Mobile Banking Platform",
+    domain:
+      "Financial Services • Investment • Mobile Banking",
+
     summary:
-      "Supported fraud-risk requirements, regulatory controls, data lineage, cloud-data architecture, dashboards, and operational monitoring.",
+      "Supporting Agile delivery across investment portfolio management and mobile banking initiatives, connecting business, investment and technology teams.",
+
     bullets: [
-      "Collaborated with Risk, Fraud, and Compliance stakeholders to create BRDs and FRDs.",
-      "Conducted impact assessments for fraud and risk-model thresholds.",
-      "Built audit-ready lineage documentation aligned with NIST and PCI-DSS standards.",
-      "Designed AWS S3 and Hadoop data-lake architectures using raw and curated zones.",
-      "Developed fraud heatmaps, chargeback trend analysis, and operational dashboards using Tableau and Power BI.",
-      "Improved fraud-agent productivity by 15%.",
-      "Implemented AWS CloudWatch and custom SQL monitoring, reducing MTTR by 32%.",
+      "Drive requirements and delivery within Agile Scrum teams and support sprint planning across cross-functional teams.",
+      "Participate in JAD sessions to analyze and document business requirements.",
+      "Partner with Investment and IT teams on operational improvements across investment sourcing, due diligence, portfolio management, execution and performance monitoring.",
+      "Support mortgage banking business logic and investment portfolio performance reporting.",
+      "Apply fund accounting principles across investment, portfolio and securities accounting.",
+      "Develop FIX protocol specifications, interfaces, service flows and FIX/SWIFT message documentation.",
+      "Create business use cases, activity diagrams, sequence diagrams and mobile UI flows.",
+      "Maintain Requirements Traceability Matrix and issue tracking.",
+      "Prepare Risk Assessment Matrix and mitigation plans for mobile banking services.",
     ],
+
     tools: [
+      "Agile / Scrum",
+      "JAD",
+      "FIX Protocol",
+      "SWIFT",
+      "UML",
+      "RTM",
+      "Risk Assessment",
+      "Fund Accounting",
+      "Mobile Banking",
+    ],
+  },
+
+  {
+    client: "AT&T",
+    role: "Business Analyst",
+    duration: "Mar 2021 – Apr 2023",
+    location: "Middletown, NJ",
+    project:
+      "5G Home Self-Install & Professional Install Platform",
+    domain:
+      "Telecom • 5G • Process Improvement",
+
+    summary:
+      "Supported Agile business analysis for 5G Home Internet self-install and professional-install processes, including data analysis, process modeling and executive reporting.",
+
+    bullets: [
+      "Worked in Agile/Scrum teams to support iterative releases.",
+      "Conducted DCO sessions with stakeholders for 5G Home Self Install and Professional Install requirements.",
+      "Queried MS SQL Server using SELECT and JOIN queries and executed SQL test scripts.",
+      "Facilitated functional design sessions to define project scope and align objectives.",
+      "Performed GAP analysis and Fit & Impact analysis for current-state and future-state solutions.",
+      "Modeled business processes using iGrafx and designed data models using PowerDesigner.",
+      "Built interactive Tableau dashboards and reports for stakeholder insights.",
+      "Tracked defects in JIRA, tasks in MS Project and documentation in SharePoint.",
+      "Presented project analysis, updates and recommendations to stakeholders and leadership.",
+      "Participated in procurement-related collaboration activities.",
+    ],
+
+    tools: [
+      "Agile / Scrum",
+      "MS SQL Server",
+      "SQL",
+      "Tableau",
+      "JIRA",
+      "MS Project",
+      "SharePoint",
+      "iGrafx",
+      "PowerDesigner",
+    ],
+  },
+
+  {
+    client: "OhioHealth",
+    role: "Business Analyst",
+    duration: "Jan 2019 – Feb 2021",
+    location: "Columbus, OH",
+    project:
+      "Healthcare Enterprise Architecture & Patient Communication Platform",
+    domain:
+      "Healthcare • CMS • HIPAA",
+
+    summary:
+      "Supported healthcare enterprise architecture and patient communication initiatives through requirements analysis, Agile delivery, SQL validation, UAT and compliance-focused documentation.",
+
+    bullets: [
+      "Gathered business, system and functional requirements through interviews with business users, stakeholders and SMEs.",
+      "Performed gap assessment of legacy-system design against new business requirements.",
+      "Supported HHS and CMS enterprise architecture initiatives.",
+      "Validated DB2 mainframe test data using SQL queries.",
+      "Organized Scrum ceremonies and helped Product Owners manage product and sprint backlogs.",
+      "Created user stories and acceptance criteria for appointment reminders, SMS notifications and web changes.",
+      "Performed UAT and demonstrated new functionality to business users.",
+      "Produced burndown, velocity and defect reports in JIRA.",
+      "Created current-state and future-state process flows and use-case diagrams in Visio.",
+      "Maintained RTM traceability between requirements, user stories and test cases.",
+      "Supported HIPAA privacy and security compliance.",
+    ],
+
+    tools: [
+      "Agile / Scrum",
+      "JIRA",
+      "SQL",
+      "IBM DB2",
+      "Mainframe",
+      "MS Visio",
+      "User Stories",
+      "RTM",
+      "UAT",
+      "CMS",
+      "HIPAA",
+    ],
+  },
+
+  {
+    client: "AmeriHealth",
+    role: "Business Systems Analyst",
+    duration: "Oct 2015 – Dec 2018",
+    location: "Cranbury, NJ",
+    project:
+      "Medicaid & Medicare Claims and Member Enrollment Platform",
+    domain:
+      "Healthcare • Medicare • Medicaid",
+
+    summary:
+      "Supported Medicaid and Medicare claims and enrollment initiatives involving requirements analysis, SQL/Python data profiling, UAT and regulatory reporting.",
+
+    bullets: [
+      "Participated in Agile Scrum ceremonies including sprint planning, estimation, demos and retrospectives.",
+      "Modeled business processes for phone, web, email, physician and pharmacy contact channels.",
+      "Worked with Underwriting and Claims SMEs to gather requirements and create functional specifications.",
+      "Performed data extraction, data mining and profiling using SQL, Python and SSMS.",
+      "Conducted UAT for Medicaid and Medicare member eligibility, provider enrollment and member enrollment.",
+      "Collaborated with UX teams on wireframes and portal prototypes.",
+      "Performed CMS T-MSIS impact analysis for state Medicaid programs.",
+      "Reviewed MITA/HITECH crosswalk analysis and contributed to MITA 3.0.",
+      "Validated data for HEDIS reporting and QAPI improvement programs.",
+      "Created UML diagrams and analyzed EDI claims and remittance workflows.",
+    ],
+
+    tools: [
+      "Agile / Scrum",
       "SQL",
       "Python",
-      "R",
-      "Spark",
-      "Amazon EMR",
-      "AWS S3",
-      "AWS Glue",
-      "Redshift",
-      "CloudWatch",
-      "Tableau",
+      "SSMS",
+      "UML",
+      "Wireframes",
+      "HIPAA",
+      "EDI",
+      "HEDIS",
+      "QAPI",
+      "MITA 3.0",
+      "MMIS",
+      "T-MSIS",
+      "UAT",
+    ],
+  },
+
+  {
+    client: "Google",
+    role: "Business Analyst",
+    duration: "Sep 2014 – Sep 2015",
+    location: "Delhi, India",
+    project:
+      "SaaS Data Analytics & Business Reporting Platform",
+    domain:
+      "Technology • SaaS • Analytics",
+
+    summary:
+      "Supported SaaS analytics and business-reporting initiatives through requirements documentation, SQL/Python validation, Power BI reporting and Waterfall project delivery.",
+
+    bullets: [
+      "Led sequential project lifecycles using Waterfall methodology.",
+      "Elicited and documented requirements and translated them into functional and technical specifications.",
+      "Created BRDs and user manuals.",
+      "Validated SaaS data using SOAP UI, SQL Developer and Python.",
+      "Supported ETL validation for data consistency across systems.",
+      "Performed statistical analysis, regression and hypothesis testing using Minitab.",
+      "Built interactive Power BI dashboards for business-performance insights.",
+      "Created process maps, diagrams and flowcharts using Lucidchart.",
+      "Managed project documentation and version control in SharePoint.",
+      "Conducted GAP analysis and led UAT with stakeholders and end users.",
+    ],
+
+    tools: [
+      "Waterfall",
+      "SOAP UI",
+      "SQL Developer",
+      "Python",
+      "Minitab",
       "Power BI",
-      "JIRA",
+      "Lucidchart",
+      "SharePoint",
+      "ETL",
+      "UAT",
     ],
   },
 ];
@@ -178,115 +338,120 @@ const skillGroups = [
     skills: [
       "Requirements Elicitation",
       "BRD",
-      "FRD",
-      "RTM",
+      "SRS / FRS",
+      "Use Cases",
       "User Stories",
       "Acceptance Criteria",
-      "Process Mapping",
-      "BPMN",
-      "Stakeholder Management",
+      "RTM",
       "GAP Analysis",
-      "Agile / Scrum",
+      "SWOT Analysis",
+      "Fit & Impact Analysis",
+      "Risk Assessment",
+      "JAD",
+    ],
+  },
+
+  {
+    title: "Methodologies",
+    skills: [
+      "Agile",
+      "Scrum",
+      "Kanban",
+      "Waterfall",
       "SDLC",
+      "RUP",
+      "RAD",
+      "Six Sigma",
     ],
   },
+
   {
-    title: "Data & SQL",
+    title: "Data & Testing",
     skills: [
-      "Advanced SQL",
-      "CTEs",
-      "Window Functions",
-      "Dimensional Modeling",
-      "Relational Modeling",
+      "SQL",
+      "MS SQL Server",
+      "Oracle",
+      "IBM DB2",
+      "MySQL",
+      "SQL Developer",
+      "SSMS",
+      "ETL Validation",
       "Data Profiling",
-      "Data Quality",
-      "Data Mapping",
-      "ETL",
-      "Reconciliation",
+      "Data Mining",
+      "UAT",
+      "Test Plans",
+      "Defect Tracking",
     ],
   },
+
   {
-    title: "Analytics & BI",
+    title: "Analytics & Reporting",
     skills: [
-      "Python",
-      "Pandas",
-      "NumPy",
-      "R",
       "Tableau",
       "Power BI",
-      "DAX",
+      "MS Excel",
+      "Python",
+      "Minitab",
       "Statistical Analysis",
-      "A/B Testing",
-      "Data Visualization",
+      "Business Reporting",
+      "Data Validation",
     ],
   },
+
   {
-    title: "Cloud & Databases",
+    title: "Modeling & Design",
     skills: [
-      "AWS S3",
-      "AWS Glue",
-      "Redshift",
-      "Azure Data Factory",
-      "Azure Synapse",
-      "GCP BigQuery",
-      "Snowflake",
-      "SQL Server",
-      "PostgreSQL",
+      "UML",
+      "Use Case Diagrams",
+      "Activity Diagrams",
+      "Sequence Diagrams",
+      "Class Diagrams",
+      "MS Visio",
+      "Lucidchart",
+      "iGrafx",
+      "ARIS",
+      "Erwin",
+      "PowerDesigner",
+      "Wireframes",
+      "Mockups",
     ],
   },
+
   {
-    title: "Tools & Delivery",
+    title: "Project & Collaboration",
     skills: [
       "JIRA",
-      "Confluence",
-      "Azure DevOps",
-      "Git",
-      "MS Visio",
-      "UAT",
-      "Defect Triage",
-      "Testing",
-      "Risk Management",
-      "Project Delivery",
+      "MS Project",
+      "MS SharePoint",
+      "Rational RequisitePro",
+      "ClearCase",
+      "MS Word",
+      "MS Excel",
+      "PowerPoint",
+      "Outlook",
     ],
   },
 ];
 
-const certifications = [
-  {
-    number: "01",
-    title: "Claude 101",
-    issuer: "Anthropic",
-    category: "Generative AI",
-  },
-  {
-    number: "02",
-    title: "AI Fluency: Frameworks and Foundations",
-    issuer: "Anthropic",
-    category: "AI Fluency",
-  },
-  {
-    number: "03",
-    title: "Cisco Data Analytics Essentials",
-    issuer: "Cisco Networking Academy",
-    category: "Data Analytics",
-  },
-  {
-    number: "04",
-    title: "Google AI Essentials",
-    issuer: "Google",
-    category: "Applied AI",
-  },
-];
-
-function SectionHeader({ label, title, description }) {
+function SectionHeader({
+  label,
+  title,
+  description,
+}) {
   return (
-    <div className="section-header">
-      <p className="section-label">{label}</p>
+    <div className="section-heading">
+      <p className="section-label">
+        {label}
+      </p>
 
-      <h2>{title}</h2>
+      <h2>
+        {title}
+      </h2>
 
       {description && (
-        <p className="section-description">{description}</p>
+        <p className="section-description">
+          {description}
+        </p>
       )}
     </div>
   );
@@ -295,353 +460,608 @@ function SectionHeader({ label, title, description }) {
 function App() {
   return (
     <div className="portfolio">
+
       <header className="navbar">
-        <a href="#home" className="brand">
-          <span className="brand-mark">VN</span>
+
+        <a
+          href="#home"
+          className="brand"
+        >
+          <span className="brand-mark">
+            VN
+          </span>
 
           <span className="brand-copy">
-            <strong>Vineela Nimmala</strong>
-            <small>Business Analyst • Data Analyst</small>
+            <strong>
+              Vineela Nimmala
+            </strong>
+
+            <small>
+              Senior Business Analyst
+            </small>
           </span>
         </a>
 
         <nav>
-          <a href="#about">About</a>
-          <a href="#process">Process</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#domains">
+            Domains
+          </a>
+
+          <a href="#process">
+            Process
+          </a>
+
+          <a href="#experience">
+            Experience
+          </a>
+
+          <a href="#skills">
+            Skills
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
         </nav>
 
         <a
-          href={resumeUrl}
+          href={profile.linkedin}
           target="_blank"
           rel="noreferrer"
-          className="resume-button"
+          className="linkedin-nav"
         >
-          Resume
+          LinkedIn
         </a>
+
       </header>
 
       <main>
-        <section id="home" className="hero container">
-          <div className="hero-copy">
-            <div className="availability">
+
+        {/* HERO */}
+
+        <section
+          id="home"
+          className="hero container"
+        >
+
+          <div className="hero-content">
+
+            <div className="status-pill">
               <span></span>
-              Open to Business Analyst & Data Analyst opportunities
+              Senior Business Analyst
             </div>
 
-            <p className="hero-label">{profile.tagline}</p>
+            <p className="hero-kicker">
+              BUSINESS ANALYSIS • DATA ANALYSIS • ENTERPRISE DELIVERY
+            </p>
 
             <h1>
-              Turning complex business needs into
-              <em> actionable data solutions.</em>
+              Connecting
+              <em>
+                {" "}
+                business, data{" "}
+              </em>
+              and technology.
             </h1>
 
             <p className="hero-description">
-              Business Analyst and Data Analyst with 5+ years of
-              experience translating complex business needs into actionable
-              solutions — from requirements gathering and data mapping through
-              testing, deployment, analytics, reporting, and adoption.
+              Senior Business Analyst
+              with 10+ years of
+              experience across
+              healthcare, banking and
+              financial services,
+              telecom, and technology.
+              Experienced in translating
+              complex stakeholder needs
+              into clear business,
+              functional, technical and
+              data requirements.
             </p>
 
-            <div className="hero-actions">
-              <a href="#process" className="btn btn-primary">
-                Explore My Process
+            <div className="hero-buttons">
+
+              <a
+                href="#experience"
+                className="button primary"
+              >
+                Explore Experience
               </a>
 
               <a
-                href={resumeUrl}
+                href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-secondary"
+                className="button secondary"
               >
-                View Resume
+                LinkedIn
               </a>
 
               <a
-                href={resumeUrl}
-                download
-                className="btn btn-secondary"
+                href={`mailto:${profile.email}`}
+                className="button secondary"
               >
-                Download Resume
+                Contact Me
               </a>
+
             </div>
 
             <div className="hero-contact">
-              <span>{profile.location}</span>
 
-              <a href={`mailto:${profile.email}`}>
+              <a
+                href={`mailto:${profile.email}`}
+              >
                 {profile.email}
               </a>
 
-              <a href={`tel:${profile.phone}`}>
+              <a
+                href={`tel:${profile.phone}`}
+              >
                 {profile.phone}
               </a>
+
             </div>
+
           </div>
 
           <div className="hero-profile">
-            <div className="decor-ring decor-ring-large"></div>
-            <div className="decor-ring decor-ring-small"></div>
+
+            <div className="ring ring-one"></div>
+
+            <div className="ring ring-two"></div>
 
             <article className="profile-card">
-              <div className="profile-image-area">
+
+              <div className="photo-wrapper">
+
                 <img
                   src={photoUrl}
                   alt="Vineela Nimmala"
-                  className="profile-image"
+                  className="profile-photo"
                 />
+
               </div>
 
-              <div className="profile-content">
-                <p>Professional Profile</p>
+              <div className="profile-info">
 
-                <h2>{profile.name}</h2>
+                <p>
+                  Professional Profile
+                </p>
 
-                <h3>{profile.title}</h3>
+                <h2>
+                  {profile.name}
+                </h2>
 
-                <div className="profile-links">
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    LinkedIn
-                  </a>
+                <h3>
+                  {profile.title}
+                </h3>
 
-                  <a
-                    href={profile.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </div>
+                <span>
+                  {profile.subtitle}
+                </span>
+
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="linkedin-button"
+                >
+                  LinkedIn Profile
+                </a>
+
               </div>
+
             </article>
+
           </div>
+
         </section>
+
+        {/* METRICS */}
 
         <section className="metrics container">
+
           {metrics.map((metric) => (
-            <article className="metric-card" key={metric.label}>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
+
+            <article
+              key={metric.label}
+              className="metric-card"
+            >
+
+              <strong>
+                {metric.value}
+              </strong>
+
+              <span>
+                {metric.label}
+              </span>
+
             </article>
+
           ))}
+
         </section>
 
-        <section id="about" className="section container">
+        {/* ABOUT */}
+
+        <section
+          id="about"
+          className="section container"
+        >
+
           <SectionHeader
             label="ABOUT ME"
-            title="Business understanding supported by data, structure, and collaboration."
-            description="My experience connects business requirements, stakeholder needs, data quality, analytics, reporting, testing, and project delivery."
+            title="Senior business analysis built around clarity, traceability and delivery."
+            description="My work spans the complete SDLC — from stakeholder discovery and requirements analysis through modeling, testing, UAT, compliance and production delivery."
           />
 
-          <div className="three-column-grid">
-            <article className="feature-card">
-              <span className="feature-number">01</span>
+          <div className="about-grid">
 
-              <h3>Business Analysis</h3>
+            {aboutCards.map((card) => (
 
-              <p>
-                Requirements elicitation, BRD/FRD/RTM creation,
-                user stories, acceptance criteria, stakeholder management,
-                GAP analysis, process mapping, and Agile delivery.
-              </p>
-            </article>
+              <article
+                className="about-card"
+                key={card.number}
+              >
 
-            <article className="feature-card">
-              <span className="feature-number">02</span>
+                <span>
+                  {card.number}
+                </span>
 
-              <h3>Data Analytics</h3>
+                <h3>
+                  {card.title}
+                </h3>
 
-              <p>
-                Advanced SQL, Python, R, data profiling, data quality,
-                dimensional modeling, ETL, KPI development, and analytical
-                validation.
-              </p>
-            </article>
+                <p>
+                  {card.text}
+                </p>
 
-            <article className="feature-card">
-              <span className="feature-number">03</span>
+              </article>
 
-              <h3>Business Intelligence</h3>
+            ))}
 
-              <p>
-                Tableau and Power BI dashboards, executive reporting,
-                data visualization, KPI monitoring, and business-focused
-                data storytelling.
-              </p>
-            </article>
           </div>
+
         </section>
 
-        <section id="process" className="section container">
+        {/* DOMAINS */}
+
+        <section
+          id="domains"
+          className="section container"
+        >
+
           <SectionHeader
-            label="MY FLOW PROCESS"
-            title="From business problem to measurable outcome."
-            description="A clear six-step view of how I approach business and data initiatives."
+            label="DOMAIN EXPERIENCE"
+            title="Cross-industry experience in regulated and enterprise environments."
+          />
+
+          <div className="domain-grid">
+
+            {domains.map((domain) => (
+
+              <article
+                className="domain-card"
+                key={domain.title}
+              >
+
+                <span>
+                  {domain.number}
+                </span>
+
+                <h3>
+                  {domain.title}
+                </h3>
+
+                <p>
+                  {domain.text}
+                </p>
+
+              </article>
+
+            ))}
+
+          </div>
+
+        </section>
+
+        {/* PROCESS */}
+
+        <section
+          id="process"
+          className="section container"
+        >
+
+          <SectionHeader
+            label="MY BA PROCESS"
+            title="From stakeholder need to validated business solution."
+            description="A structured process for keeping business objectives, requirements, technology and testing aligned."
           />
 
           <div className="process-grid">
-            {processSteps.map((step, index) => (
-              <article className="process-card" key={step.number}>
-                <div className="process-top">
-                  <span className="process-number">{step.number}</span>
 
-                  {index < processSteps.length - 1 && (
-                    <span className="process-arrow">→</span>
-                  )}
-                </div>
+            {processSteps.map(
+              (step, index) => (
 
-                <h3>{step.title}</h3>
+                <article
+                  className="process-card"
+                  key={step.number}
+                >
 
-                <p>{step.description}</p>
-              </article>
-            ))}
+                  <div className="process-heading">
+
+                    <span className="process-number">
+                      {step.number}
+                    </span>
+
+                    {index <
+                      processSteps.length -
+                        1 && (
+
+                      <span className="arrow">
+                        →
+                      </span>
+
+                    )}
+
+                  </div>
+
+                  <h3>
+                    {step.title}
+                  </h3>
+
+                  <p>
+                    {step.text}
+                  </p>
+
+                </article>
+
+              )
+            )}
+
           </div>
+
         </section>
 
-        <section id="experience" className="section container">
+        {/* EXPERIENCE */}
+
+        <section
+          id="experience"
+          className="section container"
+        >
+
           <SectionHeader
             label="PROFESSIONAL EXPERIENCE"
-            title="Career journey across healthcare, analytics, risk, fraud, and compliance."
-            description="A recruiter-friendly timeline based directly on my professional experience."
+            title="A decade of business analysis across major enterprise programs."
+            description="Experience across financial services, telecom, healthcare and technology."
           />
 
           <div className="timeline">
-            {experiences.map((job, index) => (
-              <article
-                className="timeline-item"
-                key={`${job.company}-${job.duration}`}
-              >
-                <div className="timeline-marker">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
 
-                <div className="experience-card">
-                  <div className="experience-header">
-                    <div>
-                      <p className="domain">{job.domain}</p>
+            {experiences.map(
+              (job, index) => (
 
-                      <h3>{job.company}</h3>
+                <article
+                  className="timeline-row"
+                  key={`${job.client}-${job.duration}`}
+                >
 
-                      <h4>{job.role}</h4>
+                  <div className="timeline-number">
+                    {String(
+                      index + 1
+                    ).padStart(
+                      2,
+                      "0"
+                    )}
+                  </div>
+
+                  <div className="experience-card">
+
+                    <div className="experience-header">
+
+                      <div>
+
+                        <p className="experience-domain">
+                          {job.domain}
+                        </p>
+
+                        <h3>
+                          {job.client}
+                        </h3>
+
+                        <h4>
+                          {job.role}
+                        </h4>
+
+                        <p className="project-title">
+                          {job.project}
+                        </p>
+
+                      </div>
+
+                      <div className="job-meta">
+
+                        <span>
+                          {job.duration}
+                        </span>
+
+                        <small>
+                          {job.location}
+                        </small>
+
+                      </div>
+
                     </div>
 
-                    <span className="duration">
-                      {job.duration}
-                    </span>
+                    <p className="job-summary">
+                      {job.summary}
+                    </p>
+
+                    <ul>
+
+                      {job.bullets.map(
+                        (bullet) => (
+
+                          <li key={bullet}>
+                            {bullet}
+                          </li>
+
+                        )
+                      )}
+
+                    </ul>
+
+                    <div className="tags">
+
+                      {job.tools.map(
+                        (tool) => (
+
+                          <span key={tool}>
+                            {tool}
+                          </span>
+
+                        )
+                      )}
+
+                    </div>
+
                   </div>
 
-                  <p className="experience-summary">
-                    {job.summary}
-                  </p>
+                </article>
 
-                  <ul>
-                    {job.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
+              )
+            )}
 
-                  <div className="tags">
-                    {job.tools.map((tool) => (
-                      <span key={tool}>{tool}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
+
         </section>
 
-        <section id="skills" className="section container">
+        {/* SKILLS */}
+
+        <section
+          id="skills"
+          className="section container"
+        >
+
           <SectionHeader
-            label="CORE SKILLS"
-            title="Business, data, analytics, cloud, and delivery capabilities."
+            label="TECHNICAL & BUSINESS SKILLS"
+            title="Tools and capabilities supporting end-to-end business analysis."
           />
 
           <div className="skills-grid">
-            {skillGroups.map((group) => (
-              <article className="skill-card" key={group.title}>
-                <h3>{group.title}</h3>
 
-                <div className="tags">
-                  {group.skills.map((skill) => (
-                    <span key={skill}>{skill}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
+            {skillGroups.map(
+              (group) => (
+
+                <article
+                  className="skill-card"
+                  key={group.title}
+                >
+
+                  <h3>
+                    {group.title}
+                  </h3>
+
+                  <div className="tags">
+
+                    {group.skills.map(
+                      (skill) => (
+
+                        <span key={skill}>
+                          {skill}
+                        </span>
+
+                      )
+                    )}
+
+                  </div>
+
+                </article>
+
+              )
+            )}
+
           </div>
+
         </section>
 
-        <section id="certifications" className="section container">
-          <SectionHeader
-            label="CERTIFICATIONS"
-            title="Continuous learning across AI and data analytics."
-            description="Professional certifications supporting AI fluency, analytical thinking, and data-driven problem solving."
-          />
-
-          <div className="cert-grid">
-            {certifications.map((cert) => (
-              <article className="cert-card" key={cert.title}>
-                <span className="cert-number">
-                  {cert.number}
-                </span>
-
-                <p>{cert.category}</p>
-
-                <h3>{cert.title}</h3>
-
-                <h4>{cert.issuer}</h4>
-              </article>
-            ))}
-          </div>
-        </section>
+        {/* EDUCATION */}
 
         <section className="section container">
+
           <article className="education-card">
+
             <div>
-              <p className="education-label">EDUCATION</p>
+
+              <p>
+                EDUCATION
+              </p>
 
               <h2>
-                Master of Science in Information Systems and Technology
+                Bachelor&apos;s Degree
               </h2>
 
-              <h3>University of North Texas</h3>
+              <h3>
+                Hindu College
+              </h3>
 
-              <span>Denton, Texas • 2025</span>
+              <span>
+                Guntur, Andhra Pradesh,
+                India
+              </span>
+
             </div>
 
-            <div className="education-circle">MS</div>
+            <div className="education-symbol">
+              EDU
+            </div>
+
           </article>
+
         </section>
 
-        <section id="contact" className="section container">
+        {/* CONTACT */}
+
+        <section
+          id="contact"
+          className="section container"
+        >
+
           <article className="contact-card">
+
             <div>
-              <p className="contact-label">LET&apos;S CONNECT</p>
+
+              <p className="contact-label">
+                LET&apos;S CONNECT
+              </p>
 
               <h2>
-                Ready to turn business challenges into clear,
-                data-driven solutions.
+                Bringing business,
+                data and technology
+                together for better
+                outcomes.
               </h2>
 
-              <p className="contact-description">
-                Open to Business Analyst, Data Analyst, Business Systems
-                Analyst, BI Analyst, Healthcare Analyst, and
-                analytics-focused opportunities.
+              <p className="contact-text">
+                Senior Business Analyst
+                experienced across
+                enterprise requirements,
+                process analysis,
+                data validation,
+                testing, UAT and
+                stakeholder management.
               </p>
+
             </div>
 
             <div className="contact-actions">
+
               <a
                 href={`mailto:${profile.email}`}
-                className="btn btn-primary"
+                className="button primary"
               >
                 Email Me
               </a>
@@ -650,27 +1070,30 @@ function App() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-secondary"
+                className="button secondary"
               >
                 LinkedIn
               </a>
 
               <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-secondary"
+                href={`tel:${profile.phone}`}
+                className="button secondary"
               >
-                Open Resume
+                Call Me
               </a>
+
             </div>
+
           </article>
+
         </section>
+
       </main>
 
-      <footer className="footer">
-        © {new Date().getFullYear()} Vineela Nimmala • Business Analyst • Data Analyst
+      <footer>
+        © {new Date().getFullYear()} Vineela Nimmala • Senior Business Analyst
       </footer>
+
     </div>
   );
 }
